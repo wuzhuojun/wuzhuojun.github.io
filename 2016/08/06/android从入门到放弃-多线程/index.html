@@ -94,7 +94,7 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
 <meta property="og:description" content="Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
 Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。
 如">
-<meta property="og:updated_time" content="2016-08-06T12:33:08.946Z">
+<meta property="og:updated_time" content="2016-08-06T12:39:39.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android从入门到放弃-线程">
 <meta name="twitter:description" content="Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
@@ -305,7 +305,8 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
         mTvContent.setText(result);
     }
 }
-</code></pre>
+</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
+
       
     </div>
 
