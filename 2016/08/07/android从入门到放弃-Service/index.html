@@ -84,21 +84,22 @@
 
 
 
-<meta name="description" content="前言:很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。借口很多，工作忙没时间，知识储备不够。终究就是太懒的缘故。从今天起，再次下定决心坚持写博客。记得有一个理论是27天形成一个习惯，希望这次能坚持下来。
-草原旅游:今天是周末，跟朋友到内蒙边上的草原旅游去了，宽阔的草原蓝天白云，还体验了滑草，骑马。在旅游途中认识了一些很nice的朋友，为旅途增添不少。旅行的其">
+<meta name="description" content="前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
+Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。从哲学来说是留空，空就是一切。
+大家">
 <meta property="og:type" content="article">
-<meta property="og:title" content="坝上草原碰碰车">
-<meta property="og:url" content="http://yoursite.com/2016/08/06/坝上草原碰碰车/index.html">
+<meta property="og:title" content="Android从入门到放弃-Service">
+<meta property="og:url" content="http://yoursite.com/2016/08/07/android从入门到放弃-Service/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="前言:很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。借口很多，工作忙没时间，知识储备不够。终究就是太懒的缘故。从今天起，再次下定决心坚持写博客。记得有一个理论是27天形成一个习惯，希望这次能坚持下来。
-草原旅游:今天是周末，跟朋友到内蒙边上的草原旅游去了，宽阔的草原蓝天白云，还体验了滑草，骑马。在旅游途中认识了一些很nice的朋友，为旅途增添不少。旅行的其">
-<meta property="og:image" content="http://o94lqiatj.bkt.clouddn.com/mmexport1466317528969.jpg">
-<meta property="og:updated_time" content="2016-08-06T07:46:33.193Z">
+<meta property="og:description" content="前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
+Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。从哲学来说是留空，空就是一切。
+大家">
+<meta property="og:updated_time" content="2016-08-07T02:59:33.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="坝上草原碰碰车">
-<meta name="twitter:description" content="前言:很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。借口很多，工作忙没时间，知识储备不够。终究就是太懒的缘故。从今天起，再次下定决心坚持写博客。记得有一个理论是27天形成一个习惯，希望这次能坚持下来。
-草原旅游:今天是周末，跟朋友到内蒙边上的草原旅游去了，宽阔的草原蓝天白云，还体验了滑草，骑马。在旅游途中认识了一些很nice的朋友，为旅途增添不少。旅行的其">
-<meta name="twitter:image" content="http://o94lqiatj.bkt.clouddn.com/mmexport1466317528969.jpg">
+<meta name="twitter:title" content="Android从入门到放弃-Service">
+<meta name="twitter:description" content="前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
+Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。从哲学来说是留空，空就是一切。
+大家">
 
 
 
@@ -119,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/06/坝上草原碰碰车/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/07/android从入门到放弃-Service/"/>
 
-  <title> 坝上草原碰碰车 | 伍阿哥 </title>
+  <title> Android从入门到放弃-Service | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +242,7 @@
             
             
               
-                坝上草原碰碰车
+                Android从入门到放弃-Service
               
             
           </h1>
@@ -253,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T14:31:08+08:00" content="2016-08-06">
-              2016-08-06
+            <time itemprop="dateCreated" datetime="2016-08-07T10:12:47+08:00" content="2016-08-07">
+              2016-08-07
             </time>
           </span>
 
@@ -264,8 +265,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/坝上草原碰碰车/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/坝上草原碰碰车/" itemprop="commentsCount"></span>
+                <a href="/2016/08/07/android从入门到放弃-Service/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/android从入门到放弃-Service/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,11 +289,15 @@
       
 
       
-        <p><strong>前言:</strong><br>很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。<br>借口很多，工作忙没时间，知识储备不够。<br>终究就是太懒的缘故。<br>从今天起，再次下定决心坚持写博客。<br>记得有一个理论是27天形成一个习惯，希望这次能坚持下来。</p>
-<p><strong>草原旅游:</strong><br>今天是周末，跟朋友到内蒙边上的草原旅游去了，宽阔的草原蓝天白云，还体验了滑草，骑马。<br>在旅游途中认识了一些很nice的朋友，为旅途增添不少。旅行的其中一个有意思的点在于，不期而遇。去到陌生的地方，认识陌生的人。没有剧本，没有套路，像是在探寻未知的领域。</p>
-<p><strong>总结:</strong><br>这几年去了一些城市，北京，天津，济南，西安，南京，杭州，上海…<br>完成了几项任务清单，滑雪，滑冰，爬山，冲浪。<br>人活着最重要的一个意义就是，去做自己喜欢的事情。</p>
-<p>本文记于2016年6月19日，回北京的车上。最后来一张行程的合照，<br>明天将会是更好的一天。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/mmexport1466317528969.jpg" alt=""></p>
+        <p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
+<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
+<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
+<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
+<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
+<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
+<p>以上基本是Service最简单的使用说明。</p>
+<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
+<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
 
       
     </div>
@@ -318,13 +323,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/06/android从入门到放弃-多线程/" rel="next" title="Android从入门到放弃-线程">
+                <i class="fa fa-chevron-left"></i> Android从入门到放弃-线程
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/06/android从入门到放弃/" rel="prev" title="Android从入门到放弃">
-                Android从入门到放弃 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -350,8 +355,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/06/坝上草原碰碰车/"
-           data-title="坝上草原碰碰车" data-url="http://yoursite.com/2016/08/06/坝上草原碰碰车/">
+      <div class="ds-thread" data-thread-key="2016/08/07/android从入门到放弃-Service/"
+           data-title="Android从入门到放弃-Service" data-url="http://yoursite.com/2016/08/07/android从入门到放弃-Service/">
       </div>
     
   </div>
