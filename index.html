@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -99,7 +99,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -142,7 +142,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
+      <div class="header-inner"><div class="site-meta custom-logo">
   
 
   <div class="custom-logo-site-title">
@@ -196,6 +196,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -289,20 +299,142 @@
       
         
           
-            <p><strong>重构的好处：</strong><br>重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。</p>
-<p>1、使项目代码更容易理解<br>很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。<br>项目开始的时候，设计并没有考虑到方方面面，因为你不可能预测到后面的所有需求。同时你也不能把每个功能都做预留，做成灵活可变，如果最后你预测失败，那么意味着你所做的灵活性是多余的，浪费了时间且增加了开发难度。这种情况叫做过度设计。<br>为了避免这样的情况，项目之初只做必要的设计。随着项目的变更，软件结构需要重新调整。通过重构可以改良最初的设计，使得项目符合最新的需求。</p>
-<p>经验告诉我们，当下只管建造可运行的最简化的系统，至于灵活而复杂的设计，多数时候你都不会需要它。</p>
-<p>2、帮助你找到BUG<br>重构需要你深入代码结构，这样使得你搞清楚程序结构的同时，找出隐含的BUG。</p>
-<p>3、重构提高编码速度<br>重构后的代码，代码结构被改良，良好的设计能够加快开发速度。</p>
-<p><strong>重构与性能优化：</strong><br>重构是为了让代码易于理解，你常会做出一些使程序运行变慢的修改。</p>
-<p>重构的过程中，不要同时最求优化性能。特别当重构代码优化与性能优化两者出现冲突的时候<br>通常情况下重构会使代码优雅，性能优化为了提高性能不得不采用一些技巧来实现从而有可能使得代码变得复杂<br>而且，有时性能好坏不是单凭感觉出来，多了几个for循环带来的性能下降通常没有你想象中那么大，一定要量化，能测出数据来证明是否由此导致的性能下降。<br>此时要注意我们的目的是重构，重构的手法可能会使得软件性能有所下降，也应该往下执行。<br>性能优化属于另外一个关注点，等重构完成后，项目设计良好，此时再去做性能优化也更容易。</p>
-<p>若仅凭感觉来决定说为了提高性能而放弃重构代码，这是一个错误的想法。</p>
-<p>正确的做法是：<br>首先写出可运行的软件，然后调整它以求获得更快的速度。</p>
-<p>如果当你在开发的过程中时刻追求软件的性能，首先会导致开发难度增加、开发时间变长。同时大多数情况下来分析，你会发现你花费的大部分时间都是在调整一些小部分的代码上以追求性能的增加，实际上这小部分代码最终被执行的概率没有你想象中的那么频繁。这意味着你大部分时间做的是无用功。<br>你所做的性能优化是你臆想出来的。<br>只有当你做出可运行的项目，并且对整个项目结构了解清楚之后，知道性能瓶颈在哪，有针对性的进行优化，通常会有意想不到的收获。</p>
-<p><strong>何时重构：</strong><br>重构可以随时进行，不一定要专门腾出时间来进行重构。（当然，你也可以这么做，前提是团队的意见是一致，并征得老板同意，说服老板重构能够改良设计不仅代码质量提高同时加快开发速度。）<br>但注意一定要将重构和添加功能的两种状态进行划分，在重构的时候不要添加功能。否则你不知道BUG是重构时导致还是添加功能时导致，增加重构的难度。<br>这两种状态可以来回切换，但不能重叠。</p>
-<p><strong>何时不该重构：</strong><br>项目已近最后期限，因为已经没有足够的时间重构</p>
+          重构的好处：重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。
+1、使项目代码更容易理解很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。项目开始的时候，设计并没有考虑
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/19/talk-code/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/19/hexo-blog/" itemprop="url">
+                  老司机教你如何建博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T00:00:00+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/19/hexo-blog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/hexo-blog/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
+而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
+本文教大家如何用he
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/19/hexo-blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -401,38 +533,22 @@
       
         
           
-            <p><strong>前言：</strong><br>最近经常被朋友问到的两个问题。</p>
-<blockquote>
-<p>问题一： “从事IT工作3年了，做技术好累啊，是不是做到30岁就不能继续往下做啊？”<br>问题二： “我已经30岁了，还能不能学编程？”</p>
-</blockquote>
-<p>我给出的答案是：</p>
-<blockquote>
-<p>只要你兴趣还在，可以一直做，什么时候都不会晚；<br>种一棵树最好的时间是十年前，其次是现在。</p>
-</blockquote>
-<p>本人目前在IT行业工作了6年，做过大大小小的项目，虽然跟网上那些大牛比还差很远。<br>但也确实经历过同样困惑，也迷茫过，踩过很多坑，今后也会继续踩。<br>所以关于这一类问题，也有心得体验，在此算是做个人分享吧。</p>
-<p>（本人文笔不好，写的都是流水账，凑合着看吧）</p>
-<p>==========================请无视我，我是一条分线==========================</p>
-<p><strong>IT这个行业：</strong><br><strong>IT门槛低：</strong><br>只要大学是这个专业或者非专业出身经过培训出来的就能进入这个行业。（当然，我并没有歧视IT培训这个意思，我也接触过不少IT培训出来的朋友，同样有很多牛人，包括身边的同事）</p>
-<p><strong>IT福利好：</strong><br>前几天国内关于各行业平均薪资做了统计，其中金融是第一位，IT紧随其后，可谓钱景不错。<br>市场环境相对公平，IT行业的公司，内部氛围还是不错的，相对自由平等。只要你努力，为公司为团队体现出应有的价值，那么福利和晋升机会都随之而来。（做政府项目或者国企性质的IT公司有些例外，这些公司大多是以关系和资源为核心而并非以技术为核心，不在本文讨论范围内）</p>
-<p>总的来说，对于我们这些大多数普通家庭出身的人来说，进入IT领域是一个能够实现屌丝逆袭的好选择。</p>
-<p><strong>工作：</strong><br>提升个人能力的四个步骤。学习、实践、总结、分享。</p>
-<p><strong>学习：</strong><br>工作六年基本能做到每月花100块买来书，书已经成为了我的生活调味剂，看书已经成为一种习惯。<br>对于技术要保持好奇心，时刻关注最新的行业动态，发展趋势。<br>寻找更高效的方法，更便捷的工具，来提高工作效率，减少加班。给自己留出更多的私人空间和时间，来约朋友吃饭聊天，来陪陪家里人。<br>你工作的做前端的，那么你可以尝试下后端开发。你如果是做后端的，那么可以尝一下前端。<br>你做android的，那么你可以尝试下iOS。<br>你做客户端native的，可以尝试下跨平台的各个方案，例如react native。<br>不要把自己局限在一个领域，要横向拓展技能点。思维拓展之后，有助于你深入。找到了共通点，解决问题的多个思路。</p>
-<p><strong>实践：</strong><br>掌握的知识不在于，你硬盘了塞满了教学视频、浏览器收藏夹装满了课程网址、书柜里堆满了书，而在于你能否把学到的知识运用的实际的工作。<br>技术最终的落脚点是解决现实生活中的问题。</p>
-<p><strong>总结：</strong><br>有句话说的好，浓缩的是精华。<br>比如说看书，你可以延展阅读范围，不局限于你的本专业，可以是技术、运营、心理、管理，只要你有兴趣都可以去看。但是看了之后最好能对它们进行归类总结，把学到知识用到工作当中。<br>做技术同样，你可以尝试做前端、后端、嵌入式都没问题，不要纠结选择哪个方向更好，重点是去学去动手，积累经验，提升你解决问题的能力。<br>例如本人写这篇日志也是总结&amp;分享的一个过程。<br>从现在开始，利用各种云笔记工具，随时随地记录你的想法。</p>
-<p><strong>分享：</strong><br>检验你是否掌握了一个技能点的好方法就是，你能不能够用自己的语言来描述清楚。<br>比如说：你能否跟别人讲明白，你对阻塞和非阻塞，异步、同步的理解，用你自己的理解结合你以往的项目中有关的技术点来展开。</p>
-<p>从2015年开始参加各种线下的技术沙龙，认识了很多行业内的大牛。那种XX的交流，思想的碰撞，能带给你很多意想不到的收获。<br>因此我树立了一个近期目标，就是希望能够有一天站在在台上跟大家分享。然而机会还没到来的时候，也就说明我现在暂时还没有能力去做这个事，那么我现在需要继续修炼内功，沉淀，提升文笔和表达能力。<br>有人说花这么大的精力去做这些事会不会影响工作，我却认为利用业余时间做这些事情反倒会对你的工作带来好处。<br>第一点个人能力的提升，对公司来说就是战斗力的提升。<br>第二点你的交际范围扩大了，同时你的人脉也成为了公司的资源。</p>
-<p><strong>创业：</strong><br>360 CEO周鸿祎说过一句话，创业的终极目标不是财富，而是一种修行，重塑自我的修行。<br>前两年爬过泰山和华山，特别高需要爬7、8个小时。回忆起来给我最大的感觉是，整个过程就是累，脚都要麻了，几度想要放弃，是队员的鼓励、是渴望登顶的执着，使大家坚持到最后。<br>我是14年初进入互联网创业，这两年给我带来了不一样的体验，能够有机会跟优秀的人一起工作是一件很nice的事情。</p>
-<p>同样，创业是风险大的投资，成功的概率不到1%，如果害怕失败就不要创业。那么面对创业失败要怎么调整心态变得及其重要。<br>仍然以登山举例：<br>千辛万苦你终于爬上山顶，往下看到的风景很美，但你不能在此逗留太久，因为山顶的夜晚特别冷，赶在天黑之前下山吧，别舍不得。<br>你若不下山，又怎么能去爬另外一座山呢。因此，你需要学会坦然面对得与失。</p>
-<p><strong>生活：</strong><br>关于生活的四个方面：衣食住行。</p>
-<p><strong>衣：</strong><br>以前我也不怎么注意穿衣打扮，码农清一色标准就是格子体恤+牛仔裤。<br>几年前开始在某宝、某猫网站逛，买到不合适的就扔，然后继续买，于是买买买、扔扔扔，不要舍不得花钱，一年下来也就一两千（我买的衣服都很便宜），逐渐形成自己的穿衣风格，对着镜子看，你会发现，我去，老子比以前帅多了。<br>有人会说：马云和那谁谁谁穿着很随便，人家都当首富，你穿这么好又不见得你当首富去。</p>
-<p>人家是本身有能力然后成为成功人士，只不过个人爱好在于穿衣打扮。<br>而不是因为他不注重穿衣打扮，而成为成功人士。<br>这是两个概念，请不要歪曲事实。不要迷信这些网上的流言，不要老拿别人一个点放大来说。<br>话说，谁会拒绝与那些穿衣得体的人交朋友。因此，在你消费能力范围内去改善你的外在形象，把逼格提高吧。</p>
-<p><strong>食：</strong><br>有条件允许的情况下去学一下烹饪，会做饭的男生很贴心、也是你的技能加分点。</p>
-<p><strong>住：</strong><br>尽量搬往公司近一点的地方，以前我也有一个观念是，北漂嘛，离公司远一点上下班挤公交挤地铁吃点苦没关系，锻炼毅力嘛，在车上还能看个技术视频学习学习。实际上后来发现这个想法很幼稚，疲惫的身躯。从而将这种负面情绪发泄在工作上。<br>于是我搬得离公司越来越近，从以前的挤公交到骑自行车十几分钟到走路几分钟。（现在直接是住在公司旁边的小区）</p>
-<p><strong>行：</strong><br>旅游，去过国内很多个城市，也即将办理护照计划到国外走走。<br>不要老抱怨程序员交友圈子小把不到妹子，不是行业的缘故，是你把自己圈在这里面了。<br>走万里路，才能回到内心深处。读万卷书，才能看清皓月繁星。</p>
-<p><strong>回应本文开始提到的问题：</strong><br>30岁后是否还能继续做技术。<br>首先，答案是肯定的。互联网的行业很深，足以。你看阿里的技术大神蔡景现（花名多隆），人家做了那么多年技术从淘宝最初的LAMP一两台主机网站架构到现在的大数据高并发的级分布式电商系统，而且他还能继续往下做，而且越做越牛。<br>技术只是一个切入点，让你进入到IT行业。<br>往下可以做有很多个细分领域，电商、O2O、金融、物联网、直播 等。<br>我也即将30了，人家说三十而立，30岁以前以往我把青春和热血放在，30岁过后我仍然会投身于互联网行业的第一线。<br>这个奋斗过程中会碰到各种牛人，相互交流，共同进步，共同把国内的互联网环境推向更好的未来。</p>
-<p><strong>结尾：</strong><br>以高晓松老师的名言来做个Ending。人生不是眼前的苟且，还有诗和远方的田野。</p>
+          前言：最近经常被朋友问到的两个问题。
 
-          
+问题一： “从事IT工作3年了，做技术好累啊，是不是做到30岁就不能继续往下做啊？”问题二： “我已经30岁了，还能不能学编程？”
+
+我给出的答案是：
+
+只要你兴趣还在，可以一直做，什么时候都不会晚；种一棵树最好的时间是十年前，其次是现在。
+
+本人目前在IT行
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/07/never-give-up/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -531,17 +647,15 @@
       
         
           
-            <p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
-<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
-<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
-<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
-<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
-<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
-<p>以上基本是Service最简单的使用说明。</p>
-<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
-<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
+          前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
+Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/07/android-Service/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -640,25 +754,15 @@
       
         
           
-            <p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
-<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
-<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
-<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
-<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
-    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-    @Override
-    protected String doInBackground(String... params) {
-        return GetWebData(params[0]);
-    }
-    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-    @Override
-    protected void onPostExecute(String result) {
-        mTvContent.setText(result);
-    }
-}
-</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
+          Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
+Google这样设计的目的在于让主线程不需要处理
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/android-Thread/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -757,55 +861,19 @@
       
         
           
-            <p>Android入门练手的demo<br>传送门：<a href="https://github.com/wuzhuojun/firstcode" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode</a></p>
-<p>以下是项目的目录：</p>
-<p>1、fcode1<br>Activity 与 Fragment的练习</p>
-<p>2、fcode2<br>butterknife 注解的使用</p>
-<p>gradle设置：</p>
-<pre><code>classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;
-apply plugin: &apos;android-apt&apos;
-</code></pre><p>需要增加库：</p>
-<pre><code>compile &apos;com.jakewharton:butterknife:8.1.0&apos;
-apt &apos;com.jakewharton:butterknife-compiler:8.1.0&apos;
-</code></pre><p>资料：<br><a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">http://jakewharton.github.io/butterknife/</a></p>
-<p>3、fcode3<br>获取网络数据<br>多线程的使用 Thread &amp; AsyncTask<br>发消息到主线程更新UI元素</p>
-<p>4、fcode4<br>Service的使用<br>Activity 与 Service 的相互通信。<br>Service 通过 回调的方式来通知 主线程更新UI元素</p>
-<p>5、fcode5<br>Service 通过 广播的方式来通知 主线程更新UI元素<br>每次用Service都需要另外启动线程来处理耗时操作。而IntentService对此做了封装，不需要每次另外启动线程。</p>
-<p>6、fcode6<br>AIDL</p>
-<p>7、fcode7<br>OkHttp &amp; gson 的使用</p>
-<p>需要增加库：</p>
-<pre><code>compile &apos;com.squareup.okhttp:okhttp:2.4.0&apos;
-compile &apos;com.google.code.gson:gson:2.4&apos;
-</code></pre><p>资料：<br><a href="http://square.github.io/okhttp" target="_blank" rel="external">http://square.github.io/okhttp</a><br><a href="https://github.com/google/gson" target="_blank" rel="external">https://github.com/google/gson</a></p>
-<p>8、fcode8<br>viewpager</p>
-<p>引入的库：<br>compile ‘com.android.support:design:23.2.1’</p>
-<p>修改样式：</p>
-<pre><code>G:\AndroidTestWork\fcode8\app\src\main\res\values\styles.xml
-&lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;
-&lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;
-</code></pre><p>9、fcode9<br>ListView的使用</p>
-<p>10、fcode10<br>RecyclerView的使用</p>
-<p>需要增加库</p>
-<pre><code>compile &apos;com.android.support:recyclerview-v7:23.4.0&apos;
-</code></pre><p>资料：<br>RecyclerView 可以做各种复杂的列表界面<br><a href="https://github.com/cymcsg/UltimateRecyclerView" target="_blank" rel="external">https://github.com/cymcsg/UltimateRecyclerView</a><br><a href="https://github.com/lucasr/twoway-view" target="_blank" rel="external">https://github.com/lucasr/twoway-view</a></p>
-<p>使用图片缓存 Fresco<br><a href="http://fresco-cn.org/docs/index.html" target="_blank" rel="external">http://fresco-cn.org/docs/index.html</a></p>
-<p>图片缓存开源组件比较：<br><a href="http://www.cnblogs.com/younghao/p/5088299.html" target="_blank" rel="external">http://www.cnblogs.com/younghao/p/5088299.html</a><br><a href="http://www.trinea.cn/android/android-image-cache-compare" target="_blank" rel="external">http://www.trinea.cn/android/android-image-cache-compare</a></p>
-<p>11、fcode11</p>
-<p>RecyclerView 的第三方组件 UltimateRecyclerView；封装了很多功能间隔线、下拉刷新、加载更多、加载动画 等<br>缓存组件 文件/sharepreference；ASimpleCache 是一个为android制定的 轻量级的 开源缓存框架。轻量到只有一个java文件（由十几个类精简而来）。</p>
-<p>资料：<br><a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a><br><a href="https://github.com/cymcsg/UltimateRecyclerView" target="_blank" rel="external">https://github.com/cymcsg/UltimateRecyclerView</a></p>
-<p>12、fcode12<br>数据库 greenDAO</p>
-<p>资料：<br><a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="external">https://github.com/greenrobot/greenDAO</a><br><a href="http://itangqi.me/2015/07/26/orm-greendao-summary/" target="_blank" rel="external">http://itangqi.me/2015/07/26/orm-greendao-summary/</a></p>
-<p>13、fcode13<br>广播接受者<br>内容提供者<br>logger</p>
-<p>资料：<br><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">https://github.com/orhanobut/logger</a></p>
-<p>14、fcode14<br>dagger</p>
-<p><a href="http://my.oschina.net/rengwuxian/blog/287892" target="_blank" rel="external">http://my.oschina.net/rengwuxian/blog/287892</a><br><a href="https://github.com/square/dagger" target="_blank" rel="external">https://github.com/square/dagger</a><br><a href="http://blog.csdn.net/ljphhj/article/details/37663071" target="_blank" rel="external">http://blog.csdn.net/ljphhj/article/details/37663071</a><br><a href="http://fanxu.me/post/2013-07-18" target="_blank" rel="external">http://fanxu.me/post/2013-07-18</a></p>
-<p>15、fcode15<br>EventBus</p>
-<p><a href="https://github.com/greenrobot/EventBus" target="_blank" rel="external">https://github.com/greenrobot/EventBus</a><br><a href="http://www.cnblogs.com/angeldevil/p/3715934.html" target="_blank" rel="external">http://www.cnblogs.com/angeldevil/p/3715934.html</a></p>
-<p>16、fcode16<br>RxAndroid 和 Retrofit 结合使用</p>
-<p><a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">https://github.com/ReactiveX/RxAndroid</a><br><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">https://github.com/lzyzsd/Awesome-RxJava</a></p>
-<p><a href="https://github.com/drakeet/Meizhi" target="_blank" rel="external">https://github.com/drakeet/Meizhi</a><br><a href="https://github.com/rengwuxian/RxJavaSamples" target="_blank" rel="external">https://github.com/rengwuxian/RxJavaSamples</a><br><a href="https://github.com/xcc3641/SeeWeather" target="_blank" rel="external">https://github.com/xcc3641/SeeWeather</a></p>
+          Android入门练手的demo传送门：https://github.com/wuzhuojun/firstcode
+以下是项目的目录：
+1、fcode1Activity 与 Fragment的练习
+2、fcode2butterknife 注解的使用
+gradle设置：
+classpath &apo
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/android-directory/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -904,135 +972,15 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
       
         
           
-            <p><strong>前言:</strong><br>很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。<br>借口很多，工作忙没时间，知识储备不够。<br>终究就是太懒的缘故。<br>从今天起，再次下定决心坚持写博客。<br>记得有一个理论是27天形成一个习惯，希望这次能坚持下来。</p>
-<p><strong>草原旅游:</strong><br>今天是周末，跟朋友到内蒙边上的草原旅游去了，宽阔的草原蓝天白云，还体验了滑草，骑马。<br>在旅游途中认识了一些很nice的朋友，为旅途增添不少。旅行的其中一个有意思的点在于，不期而遇。去到陌生的地方，认识陌生的人。没有剧本，没有套路，像是在探寻未知的领域。</p>
-<p><strong>总结:</strong><br>这几年去了一些城市，北京，天津，济南，西安，南京，杭州，上海…<br>完成了几项任务清单，滑雪，滑冰，爬山，冲浪。<br>人活着最重要的一个意义就是，去做自己喜欢的事情。</p>
-<p>本文记于2016年6月19日，回北京的车上。最后来一张行程的合照，<br>明天将会是更好的一天。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/mmexport1466317528969.jpg" alt=""></p>
+          前言:很多次都下定决心要写博客，有关技能，学习，分享，生活，成长，感悟，之前每次都没坚持下来。借口很多，工作忙没时间，知识储备不够。终究就是太懒的缘故。从今天起，再次下定决心坚持写博客。记得有一个理论是27天形成一个习惯，希望这次能坚持下来。
+草原旅游:今天是周末，跟朋友到内蒙边上的草原旅游去了，宽
+          ...
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/05/29/hexo-blog/" itemprop="url">
-                  老司机教你如何建博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-05-29T00:00:00+08:00" content="2013-05-29">
-              2013-05-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/05/29/hexo-blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/05/29/hexo-blog/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有人说博客早就过时了，现在都玩微信、微博。<br>那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/19743861</a></p>
-<p>而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。</p>
-<p>本文教大家如何用hexo一步步来搭建个人博客。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/grassland-tour/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1092,7 +1040,7 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="http://wuage.me/images/avatar.jpg"
                alt="伍阿哥" />
           <p class="site-author-name" itemprop="name">伍阿哥</p>
           <p class="site-description motion-element" itemprop="description">紫薇爱我别走~</p>
@@ -1128,6 +1076,26 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wuzhuojun" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5zhuojun" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1168,7 +1136,7 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -1233,6 +1201,13 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
 
   
 
