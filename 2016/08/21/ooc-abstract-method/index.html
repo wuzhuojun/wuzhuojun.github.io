@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客," />
+  <meta name="keywords" content="面向对象," />
 
 
 
@@ -84,22 +84,31 @@
 
 
 
-<meta name="description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
+<meta name="description" content="首先是将需求中容易变化与不变化的部分进行分离。
+不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
+比如：举例一：要实现 1+2+3+…+N 算法。
+那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
+举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
+父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="老司机教你如何建博客">
-<meta property="og:url" content="http://yoursite.com/2016/08/19/hexo-blog/index.html">
+<meta property="og:title" content="面向对象--抽象方法的理解">
+<meta property="og:url" content="http://yoursite.com/2016/08/21/ooc-abstract-method/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
-<meta property="og:updated_time" content="2016-08-19T13:42:11.010Z">
+<meta property="og:description" content="首先是将需求中容易变化与不变化的部分进行分离。
+不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
+比如：举例一：要实现 1+2+3+…+N 算法。
+那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
+举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
+父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
+<meta property="og:updated_time" content="2016-08-21T09:49:03.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老司机教你如何建博客">
-<meta name="twitter:description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
+<meta name="twitter:title" content="面向对象--抽象方法的理解">
+<meta name="twitter:description" content="首先是将需求中容易变化与不变化的部分进行分离。
+不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
+比如：举例一：要实现 1+2+3+…+N 算法。
+那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
+举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
+父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
 
 
 
@@ -120,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/19/hexo-blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/21/ooc-abstract-method/"/>
 
-  <title> 老司机教你如何建博客 | 伍阿哥 </title>
+  <title> 面向对象--抽象方法的理解 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +261,7 @@
             
             
               
-                老司机教你如何建博客
+                面向对象--抽象方法的理解
               
             
           </h1>
@@ -264,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-19T00:00:00+08:00" content="2016-08-19">
-              2016-08-19
+            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
+              2016-08-21
             </time>
           </span>
 
@@ -278,8 +287,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/面向对象/" itemprop="url" rel="index">
+                    <span itemprop="name">面向对象</span>
                   </a>
                 </span>
 
@@ -294,8 +303,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/19/hexo-blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/hexo-blog/" itemprop="commentsCount"></span>
+                <a href="/2016/08/21/ooc-abstract-method/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ooc-abstract-method/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,9 +327,12 @@
       
 
       
-        <p>有人说博客早就过时了，现在都玩微信、微博。<br>那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/19743861</a></p>
-<p>而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。</p>
-<p>本文教大家如何用hexo一步步来搭建个人博客。</p>
+        <p>首先是将需求中容易变化与不变化的部分进行分离。</p>
+<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
+<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
+<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
+<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
+<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
 
       
     </div>
@@ -343,7 +355,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客/" rel="tag">#博客</a>
+            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
           
         </div>
       
@@ -352,16 +364,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/07/never-give-up/" rel="next" title="种一棵树最好的时间是十年前，其次是现在。">
-                <i class="fa fa-chevron-left"></i> 种一棵树最好的时间是十年前，其次是现在。
+              <a href="/2016/08/20/talk-code/" rel="next" title="漫谈项目设计&重构&性能优化">
+                <i class="fa fa-chevron-left"></i> 漫谈项目设计&重构&性能优化
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/20/talk-code/" rel="prev" title="漫谈项目设计&重构&性能优化">
-                漫谈项目设计&重构&性能优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/21/architecture-evolution /" rel="prev" title="框架设计的演变历程">
+                框架设计的演变历程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -388,8 +400,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/19/hexo-blog/"
-           data-title="老司机教你如何建博客" data-url="http://yoursite.com/2016/08/19/hexo-blog/">
+      <div class="ds-thread" data-thread-key="2016/08/21/ooc-abstract-method/"
+           data-title="面向对象--抽象方法的理解" data-url="http://yoursite.com/2016/08/21/ooc-abstract-method/">
       </div>
     
   </div>

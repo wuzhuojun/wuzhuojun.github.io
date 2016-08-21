@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客," />
+  <meta name="keywords" content="架构设计," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
+<meta name="description" content="重构的好处：重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。
+1、使项目代码更容易理解很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。项目开始的时候，设计并没有考虑到方方面面，因为你不可能预测到后面的所有需求。同时你也不能把每个功能都做预留，做成灵活可变，如果最后">
 <meta property="og:type" content="article">
-<meta property="og:title" content="老司机教你如何建博客">
-<meta property="og:url" content="http://yoursite.com/2016/08/19/hexo-blog/index.html">
+<meta property="og:title" content="漫谈项目设计&重构&性能优化">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/talk-code/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
-<meta property="og:updated_time" content="2016-08-19T13:42:11.010Z">
+<meta property="og:description" content="重构的好处：重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。
+1、使项目代码更容易理解很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。项目开始的时候，设计并没有考虑到方方面面，因为你不可能预测到后面的所有需求。同时你也不能把每个功能都做预留，做成灵活可变，如果最后">
+<meta property="og:updated_time" content="2016-08-21T09:53:50.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老司机教你如何建博客">
-<meta name="twitter:description" content="有人说博客早就过时了，现在都玩微信、微博。那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答https://zhuanlan.zhihu.com/p/19743861
-而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。
-本文教大家如何用hexo一步步来搭建个人博客。">
+<meta name="twitter:title" content="漫谈项目设计&重构&性能优化">
+<meta name="twitter:description" content="重构的好处：重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。
+1、使项目代码更容易理解很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。项目开始的时候，设计并没有考虑到方方面面，因为你不可能预测到后面的所有需求。同时你也不能把每个功能都做预留，做成灵活可变，如果最后">
 
 
 
@@ -120,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/19/hexo-blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/20/talk-code/"/>
 
-  <title> 老司机教你如何建博客 | 伍阿哥 </title>
+  <title> 漫谈项目设计&重构&性能优化 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
             
             
               
-                老司机教你如何建博客
+                漫谈项目设计&重构&性能优化
               
             
           </h1>
@@ -264,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-19T00:00:00+08:00" content="2016-08-19">
-              2016-08-19
+            <time itemprop="dateCreated" datetime="2016-08-20T00:00:00+08:00" content="2016-08-20">
+              2016-08-20
             </time>
           </span>
 
@@ -278,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
                   </a>
                 </span>
 
@@ -294,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/19/hexo-blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/hexo-blog/" itemprop="commentsCount"></span>
+                <a href="/2016/08/20/talk-code/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/talk-code/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,9 +315,18 @@
       
 
       
-        <p>有人说博客早就过时了，现在都玩微信、微博。<br>那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/19743861</a></p>
-<p>而我做的博客的想法很简单，就是自由的表达自己的想法，有关工作、生活、创业、理想。</p>
-<p>本文教大家如何用hexo一步步来搭建个人博客。</p>
+        <p><strong>重构的好处：</strong><br>重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。</p>
+<p>1、使项目代码更容易理解<br>很多情况下是由于项目赶进度和不注重质量导致的。那么通过重构可以帮助代码维持自己该有的形态。<br>项目开始的时候，设计并没有考虑到方方面面，因为你不可能预测到后面的所有需求。同时你也不能把每个功能都做预留，做成灵活可变，如果最后你预测失败，那么意味着你所做的灵活性是多余的，浪费了时间且增加了开发难度。这种情况叫做过度设计。<br>为了避免这样的情况，项目之初只做必要的设计。随着项目的变更，软件结构需要重新调整。通过重构可以改良最初的设计，使得项目符合最新的需求。</p>
+<p>经验告诉我们，当下只管建造可运行的最简化的系统，至于灵活而复杂的设计，多数时候你都不会需要它。</p>
+<p>2、帮助你找到BUG<br>重构需要你深入代码结构，这样使得你搞清楚程序结构的同时，找出隐含的BUG。</p>
+<p>3、重构提高编码速度<br>重构后的代码，代码结构被改良，良好的设计能够加快开发速度。</p>
+<p><strong>重构与性能优化：</strong><br>重构是为了让代码易于理解，你常会做出一些使程序运行变慢的修改。</p>
+<p>重构的过程中，不要同时最求优化性能。特别当重构代码优化与性能优化两者出现冲突的时候<br>通常情况下重构会使代码优雅，性能优化为了提高性能不得不采用一些技巧来实现从而有可能使得代码变得复杂<br>而且，有时性能好坏不是单凭感觉出来，多了几个for循环带来的性能下降通常没有你想象中那么大，一定要量化，能测出数据来证明是否由此导致的性能下降。<br>此时要注意我们的目的是重构，重构的手法可能会使得软件性能有所下降，也应该往下执行。<br>性能优化属于另外一个关注点，等重构完成后，项目设计良好，此时再去做性能优化也更容易。</p>
+<p>若仅凭感觉来决定说为了提高性能而放弃重构代码，这是一个错误的想法。</p>
+<p>正确的做法是：<br>首先写出可运行的软件，然后调整它以求获得更快的速度。</p>
+<p>如果当你在开发的过程中时刻追求软件的性能，首先会导致开发难度增加、开发时间变长。同时大多数情况下来分析，你会发现你花费的大部分时间都是在调整一些小部分的代码上以追求性能的增加，实际上这小部分代码最终被执行的概率没有你想象中的那么频繁。这意味着你大部分时间做的是无用功。<br>你所做的性能优化是你臆想出来的。<br>只有当你做出可运行的项目，并且对整个项目结构了解清楚之后，知道性能瓶颈在哪，有针对性的进行优化，通常会有意想不到的收获。</p>
+<p><strong>何时重构：</strong><br>重构可以随时进行，不一定要专门腾出时间来进行重构。（当然，你也可以这么做，前提是团队的意见是一致，并征得老板同意，说服老板重构能够改良设计不仅代码质量提高同时加快开发速度。）<br>但注意一定要将重构和添加功能的两种状态进行划分，在重构的时候不要添加功能。否则你不知道BUG是重构时导致还是添加功能时导致，增加重构的难度。<br>这两种状态可以来回切换，但不能重叠。</p>
+<p><strong>何时不该重构：</strong><br>项目已近最后期限，因为已经没有足够的时间重构</p>
 
       
     </div>
@@ -343,7 +349,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客/" rel="tag">#博客</a>
+            <a href="/tags/架构设计/" rel="tag">#架构设计</a>
           
         </div>
       
@@ -352,16 +358,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/07/never-give-up/" rel="next" title="种一棵树最好的时间是十年前，其次是现在。">
-                <i class="fa fa-chevron-left"></i> 种一棵树最好的时间是十年前，其次是现在。
+              <a href="/2016/08/19/hexo-blog/" rel="next" title="老司机教你如何建博客">
+                <i class="fa fa-chevron-left"></i> 老司机教你如何建博客
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/20/talk-code/" rel="prev" title="漫谈项目设计&重构&性能优化">
-                漫谈项目设计&重构&性能优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/21/ooc-abstract-method/" rel="prev" title="面向对象--抽象方法的理解">
+                面向对象--抽象方法的理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -388,8 +394,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/19/hexo-blog/"
-           data-title="老司机教你如何建博客" data-url="http://yoursite.com/2016/08/19/hexo-blog/">
+      <div class="ds-thread" data-thread-key="2016/08/20/talk-code/"
+           data-title="漫谈项目设计&重构&性能优化" data-url="http://yoursite.com/2016/08/20/talk-code/">
       </div>
     
   </div>
