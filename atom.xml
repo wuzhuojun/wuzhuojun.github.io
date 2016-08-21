@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-21T10:30:56.344Z</updated>
+  <updated>2016-08-21T09:49:03.148Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://yoursite.com/2016/08/21/ooc-class-template/"/>
+    <id>http://yoursite.com/2016/08/21/ooc-class-template/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://yoursite.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>架构设计的演变历程</title>
@@ -52,35 +92,26 @@
   </entry>
   
   <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://yoursite.com/2016/08/21/ooc-class-template/"/>
-    <id>http://yoursite.com/2016/08/21/ooc-class-template/</id>
+    <title>面向对象--抽象方法的理解</title>
+    <link href="http://yoursite.com/2016/08/21/ooc-abstract-method/"/>
+    <id>http://yoursite.com/2016/08/21/ooc-abstract-method/</id>
     <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
+    <updated>2016-08-21T09:49:03.889Z</updated>
     
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
+    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
+<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
+<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
+<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
+<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
+<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
+      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
+&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
+&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
+&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
     
     </summary>
     
@@ -164,37 +195,6 @@ public class ChildFactory
     <summary type="html">
     
       &lt;p&gt;高焕堂老师的android面向对象视频，讲的非常好。 &lt;a href=&quot;http://www.maiziedu.com/u/2021/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.maiziedu.com/u/2021/&lt;/a&gt;&lt;b
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://yoursite.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--抽象方法的理解</title>
-    <link href="http://yoursite.com/2016/08/21/ooc-abstract-method/"/>
-    <id>http://yoursite.com/2016/08/21/ooc-abstract-method/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.889Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
-&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
-&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
-&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
     
     </summary>
     
@@ -321,6 +321,46 @@ public class ChildFactory
   </entry>
   
   <entry>
+    <title>Android从入门到放弃-线程</title>
+    <link href="http://yoursite.com/2016/08/06/android-Thread/"/>
+    <id>http://yoursite.com/2016/08/06/android-Thread/</id>
+    <published>2016-08-05T16:00:00.000Z</published>
+    <updated>2016-08-21T09:20:46.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
+<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
+<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
+<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
+<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
+    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
+    @Override
+    protected String doInBackground(String... params) {
+        return GetWebData(params[0]);
+    }
+    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
+    @Override
+    protected void onPostExecute(String result) {
+        mTvContent.setText(result);
+    }
+}
+</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
+&lt;p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://yoursite.com/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android从入门到放弃-Service</title>
     <link href="http://yoursite.com/2016/08/06/android-Service/"/>
     <id>http://yoursite.com/2016/08/06/android-Service/</id>
@@ -411,46 +451,6 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
     <summary type="html">
     
       &lt;p&gt;Android入门练手的demo&lt;br&gt;传送门：&lt;a href=&quot;https://github.com/wuzhuojun/firstcode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wuzhuojun/firs
-    
-    </summary>
-    
-      <category term="android" scheme="http://yoursite.com/categories/android/"/>
-    
-    
-      <category term="android" scheme="http://yoursite.com/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android从入门到放弃-线程</title>
-    <link href="http://yoursite.com/2016/08/06/android-Thread/"/>
-    <id>http://yoursite.com/2016/08/06/android-Thread/</id>
-    <published>2016-08-05T16:00:00.000Z</published>
-    <updated>2016-08-21T09:20:46.551Z</updated>
-    
-    <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
-<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
-<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
-<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
-<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
-    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-    @Override
-    protected String doInBackground(String... params) {
-        return GetWebData(params[0]);
-    }
-    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-    @Override
-    protected void onPostExecute(String result) {
-        mTvContent.setText(result);
-    }
-}
-</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
-&lt;p&gt;
     
     </summary>
     
