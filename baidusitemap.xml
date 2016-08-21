@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/21/architecture-evolution%20/</loc>
+    <lastmod>2016-08-21T10:30:56.344Z</lastmod>
+    <data>
+        <display>
+        <title>架构设计的演变历程</title>
+        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>架构设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构设计" url="http://yoursite.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/20/talk-code/</loc>
+    <lastmod>2016-08-21T09:53:50.657Z</lastmod>
+    <data>
+        <display>
+        <title>漫谈项目设计重构性能优化</title>
+        <pubTime>2016-08-19T16:00:00.000Z</pubTime>
+        
+        <tag>架构设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构设计" url="http://yoursite.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/21/ooc-android-EIT/</loc>
+    <lastmod>2016-08-21T09:53:20.092Z</lastmod>
+    <data>
+        <display>
+        <title>以面向对象的角度理解android的架构设计</title>
+        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>面向对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="面向对象" url="http://yoursite.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/21/ooc-abstract-method/</loc>
+    <lastmod>2016-08-21T09:49:03.889Z</lastmod>
+    <data>
+        <display>
+        <title>面向对象--抽象方法的理解</title>
+        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>面向对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="面向对象" url="http://yoursite.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/21/ooc-class-template/</loc>
+    <lastmod>2016-08-21T09:49:03.148Z</lastmod>
+    <data>
+        <display>
+        <title>面向对象--类模板的理解</title>
+        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>面向对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="面向对象" url="http://yoursite.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/07/never-give-up/</loc>
+    <lastmod>2016-08-21T09:22:39.256Z</lastmod>
+    <data>
+        <display>
+        <title>种一棵树最好的时间是十年前，其次是现在。</title>
+        <pubTime>2016-08-06T16:00:00.000Z</pubTime>
+        
+        <tag>程序人生</tag>
+         
+         
+           
+             
+              <breadCrumb title="程序人生" url="http://yoursite.com/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/19/grassland-tour/</loc>
+    <lastmod>2016-08-21T09:21:50.657Z</lastmod>
+    <data>
+        <display>
+        <title>坝上草原碰碰车</title>
+        <pubTime>2016-06-18T16:00:00.000Z</pubTime>
+        
+        <tag>旅行</tag>
+         
+         
+           
+             
+              <breadCrumb title="blog" url="http://yoursite.com/categories/blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/06/android-Thread/</loc>
+    <lastmod>2016-08-21T09:20:46.551Z</lastmod>
+    <data>
+        <display>
+        <title>Android从入门到放弃-线程</title>
+        <pubTime>2016-08-05T16:00:00.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://yoursite.com/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/06/android-directory/</loc>
+    <lastmod>2016-08-21T09:20:45.891Z</lastmod>
+    <data>
+        <display>
+        <title>Android从入门到放弃</title>
+        <pubTime>2016-08-05T16:00:00.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://yoursite.com/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/06/android-Service/</loc>
+    <lastmod>2016-08-21T09:20:45.236Z</lastmod>
+    <data>
+        <display>
+        <title>Android从入门到放弃-Service</title>
+        <pubTime>2016-08-05T16:00:00.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://yoursite.com/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/19/hexo-blog/</loc>
+    <lastmod>2016-08-19T13:42:11.010Z</lastmod>
+    <data>
+        <display>
+        <title>老司机教你如何建博客</title>
+        <pubTime>2016-08-18T16:00:00.000Z</pubTime>
+        
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="blog" url="http://yoursite.com/categories/blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
