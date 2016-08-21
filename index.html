@@ -291,8 +291,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/21/ooc-android-EIT/" itemprop="url">
-                  以面向对象的角度理解android的架构设计
+                <a class="post-title-link" href="/2016/08/21/ooc-abstract-method/" itemprop="url">
+                  面向对象--抽象方法的理解
                 </a>
               
             
@@ -335,8 +335,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/21/ooc-android-EIT/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ooc-android-EIT/" itemprop="commentsCount"></span>
+                <a href="/2016/08/21/ooc-abstract-method/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ooc-abstract-method/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -361,15 +361,15 @@
       
         
           
-          高焕堂老师的android面向对象视频，讲的非常好。 http://www.maiziedu.com/u/2021/其中他对 面向对象的理解，延伸出了EIT的概念。
-E表示父类I表示接口T表示子类
-E是控制点，透过I来控制T。
-用代码来表示用两种方式：第一种方式：
-public class Pare
+          首先是将需求中容易变化与不变化的部分进行分离。
+不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
+比如：举例一：要实现 1+2+3+…+N 算法。
+那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
+举例二：实现 1+2+3+…+N  和 123…N
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/ooc-android-EIT/#more" rel="contents">
+            <a class="btn" href="/2016/08/21/ooc-abstract-method/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -546,6 +546,135 @@ public class Pare
             
               
                 
+                <a class="post-title-link" href="/2016/08/21/ooc-android-EIT/" itemprop="url">
+                  以面向对象的角度理解android的架构设计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
+              2016-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/面向对象/" itemprop="url" rel="index">
+                    <span itemprop="name">面向对象</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/21/ooc-android-EIT/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ooc-android-EIT/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          高焕堂老师的android面向对象视频，讲的非常好。 http://www.maiziedu.com/u/2021/其中他对 面向对象的理解，延伸出了EIT的概念。
+E表示父类I表示接口T表示子类
+E是控制点，透过I来控制T。
+用代码来表示用两种方式：第一种方式：
+public class Pare
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/21/ooc-android-EIT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/21/ooc-class-template/" itemprop="url">
                   面向对象--类模板的理解
                 </a>
@@ -628,135 +757,6 @@ Person&lt;int&gt; p = new Person
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/21/ooc-class-template/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/21/ooc-abstract-method/" itemprop="url">
-                  面向对象--抽象方法的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/面向对象/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/21/ooc-abstract-method/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ooc-abstract-method/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/ooc-abstract-method/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1688,11 +1688,11 @@ Google这样设计的目的在于让主线程不需要处理
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by  <a class="theme-link" href="https://hexo.io">Hexo</a> 
 </div>
 
 <div class="theme-info">
-  主题 -
+  Clone theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
