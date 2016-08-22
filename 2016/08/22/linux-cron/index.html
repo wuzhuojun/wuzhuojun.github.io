@@ -86,12 +86,10 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux，定时任务，后端开发," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="伍阿哥" type="application/atom+xml" />
@@ -106,13 +104,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="http://wuage.me/404/index.html">
+<meta name="description" content="PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。
+PHP定时任务的两种方法：1、web方式调用php网页，但是这样存在安全问题，外部用户同时也可以调用此文件。
+*/1 * * * * /usr/bin/wget -q -O temp.txt http://wan.coolxap.cn/cron
+2、用php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP结合Linux的cron命令实现定时任务">
+<meta property="og:url" content="http://wuage.me/2016/08/22/linux-cron/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:updated_time" content="2016-08-21T13:56:20.092Z">
+<meta property="og:description" content="PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。
+PHP定时任务的两种方法：1、web方式调用php网页，但是这样存在安全问题，外部用户同时也可以调用此文件。
+*/1 * * * * /usr/bin/wget -q -O temp.txt http://wan.coolxap.cn/cron
+2、用php">
+<meta property="og:updated_time" content="2016-08-22T14:59:36.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
+<meta name="twitter:title" content="PHP结合Linux的cron命令实现定时任务">
+<meta name="twitter:description" content="PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。
+PHP定时任务的两种方法：1、web方式调用php网页，但是这样存在安全问题，外部用户同时也可以调用此文件。
+*/1 * * * * /usr/bin/wget -q -O temp.txt http://wan.coolxap.cn/cron
+2、用php">
 
 
 
@@ -133,15 +143,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/404/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/22/linux-cron/"/>
 
-  <title>
-  
-
-  
-    404 | 伍阿哥
-  
-</title>
+  <title> PHP结合Linux的cron命令实现定时任务 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -162,7 +166,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,9 +279,176 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <html><br><head><br>  <meta http-equiv="content-type" content="text/html;charset=utf-8;"><br>  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><br>  <meta name="robots" content="all"><br>  <meta name="robots" content="index,follow"><br></head><br><body><br><br><script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="http://wuage.me" homepagename="回到我的主页"><br></script><br><br></body><br></html>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP结合Linux的cron命令实现定时任务
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-22T00:00:00+08:00" content="2016-08-22">
+              2016-08-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/后端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/22/linux-cron/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/22/linux-cron/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）<br>大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。</p>
+<p><strong>PHP定时任务的两种方法：</strong><br>1、web方式调用php网页，但是这样存在安全问题，外部用户同时也可以调用此文件。</p>
+<pre><code>*/1 * * * * /usr/bin/wget -q -O temp.txt http://wan.coolxap.cn/cron
+</code></pre><p>2、用php-cli 模式来调用 php脚本，cli是以一种命令行模式来执行php脚本</p>
+<pre><code>* * * * * /usr/bin/php -f /root/test.php &gt;&gt; test.log
+</code></pre><p>使用crontab -e添加任务，在/var/spool/cron下你可以看到一个root文件。</p>
+<p>重启服务，使修改 生效</p>
+<pre><code>service crond restart
+</code></pre><p>crontab最细的粒度是分钟，但可以起多个任务+休眠来达到模拟 以秒为单位的任务。</p>
+<pre><code>* * * * * /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 10; /bin/date &gt;&gt; /tmp/date.txt   
+* * * * * sleep 20; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 30; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 40; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 50; /bin/date &gt;&gt; /tmp/date.txt
+</code></pre><p>列举个真实场景：</p>
+<pre><code>*/1 * * * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/closeinvalidlive
+0 0 27 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/magicdistributed
+0 0 26 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/guildassessment
+0 0 27 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/guildprizestatement
+</code></pre><p><strong>当定时任务不起作用</strong><br>定时任务，里面执行php脚本。<br>发现不能直接执行，需要切换到www用户来执行php脚本，<br>否则，脚本所做的操作都是以 root 的权限来执行的，比如创建文件目录 和 下载的图片都是属于 root 用户组。<br>直接导致到的问题是，web网页用户由于权限不足就无法对该目录进行操作，比如root创建的目录，web用户无法在该目录上传图片。</p>
+<p><strong>解决方案如下：</strong></p>
+<pre><code>!/bin/sh
+</code></pre><p>切换到www用户来执行命令</p>
+<pre><code>su www &quot;-c cd /alidata/www/wwwroot/17xap/e/caidiscuz/ &amp;&amp; /aliyun/webserver/php5.2.17/bin/php pushnews2.php -9 -u&quot;
+</code></pre><p>另外解决图片下载时发现的一个解决问题的小技巧。<br>用接口的形式来访问某个php文件时，发现下载图片失败，提示权限不足 无法在该目录做图片存储操作。<br>然后检查目录的权限是wr-wr-wr 0666，理论上是支持目录的读写。但为什么不能做图片下载操作呢？<br>因为没有x权限就无法在该目录下执行任何命令，包括mkdir、ls等。创建图片不仅需要 w权限还需要x权限。<br>改为wrx-r-xr-x 0755权限后就能正常下载图片。</p>
+<p>解决问题的技巧是先给足0777权限后，待问题解决了，确定是目录权限不足导致脚本无法正常运行的时候，再把目录的权限收回来，逐步提高权限。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux，定时任务，后端开发/" rel="tag">#Linux，定时任务，后端开发</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/21/ooc-abstract-method/" rel="next" title="面向对象--抽象方法的理解">
+                <i class="fa fa-chevron-left"></i> 面向对象--抽象方法的理解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -288,8 +459,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="404/index.html"
-           data-title="404" data-url="http://wuage.me/404/index.html">
+      <div class="ds-thread" data-thread-key="2016/08/22/linux-cron/"
+           data-title="PHP结合Linux的cron命令实现定时任务" data-url="http://wuage.me/2016/08/22/linux-cron/">
       </div>
     
   </div>
@@ -313,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://wuage.me/images/avatar.jpg"
@@ -391,6 +571,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -503,6 +694,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

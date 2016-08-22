@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuage.me/"/>
-  <updated>2016-08-21T09:49:03.148Z</updated>
+  <updated>2016-08-22T14:59:36.750Z</updated>
   <id>http://wuage.me/</id>
   
   <author>
@@ -16,35 +16,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://wuage.me/2016/08/21/ooc-class-template/"/>
-    <id>http://wuage.me/2016/08/21/ooc-class-template/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
+    <title>PHP结合Linux的cron命令实现定时任务</title>
+    <link href="http://wuage.me/2016/08/22/linux-cron/"/>
+    <id>http://wuage.me/2016/08/22/linux-cron/</id>
+    <published>2016-08-21T16:00:00.000Z</published>
+    <updated>2016-08-22T14:59:36.750Z</updated>
     
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
+    <content type="html"><![CDATA[<p>PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）<br>大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。</p>
+<p><strong>PHP定时任务的两种方法：</strong><br>1、web方式调用php网页，但是这样存在安全问题，外部用户同时也可以调用此文件。</p>
+<pre><code>*/1 * * * * /usr/bin/wget -q -O temp.txt http://wan.coolxap.cn/cron
+</code></pre><p>2、用php-cli 模式来调用 php脚本，cli是以一种命令行模式来执行php脚本</p>
+<pre><code>* * * * * /usr/bin/php -f /root/test.php &gt;&gt; test.log
+</code></pre><p>使用crontab -e添加任务，在/var/spool/cron下你可以看到一个root文件。</p>
+<p>重启服务，使修改 生效</p>
+<pre><code>service crond restart
+</code></pre><p>crontab最细的粒度是分钟，但可以起多个任务+休眠来达到模拟 以秒为单位的任务。</p>
+<pre><code>* * * * * /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 10; /bin/date &gt;&gt; /tmp/date.txt   
+* * * * * sleep 20; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 30; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 40; /bin/date &gt;&gt; /tmp/date.txt
+* * * * * sleep 50; /bin/date &gt;&gt; /tmp/date.txt
+</code></pre><p>列举个真实场景：</p>
+<pre><code>*/1 * * * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/closeinvalidlive
+0 0 27 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/magicdistributed
+0 0 26 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/guildassessment
+0 0 27 * * /usr/bin/wget --spider http://wan.coolxap.cn/cron/guildprizestatement
+</code></pre><p><strong>当定时任务不起作用</strong><br>定时任务，里面执行php脚本。<br>发现不能直接执行，需要切换到www用户来执行php脚本，<br>否则，脚本所做的操作都是以 root 的权限来执行的，比如创建文件目录 和 下载的图片都是属于 root 用户组。<br>直接导致到的问题是，web网页用户由于权限不足就无法对该目录进行操作，比如root创建的目录，web用户无法在该目录上传图片。</p>
+<p><strong>解决方案如下：</strong></p>
+<pre><code>!/bin/sh
+</code></pre><p>切换到www用户来执行命令</p>
+<pre><code>su www &quot;-c cd /alidata/www/wwwroot/17xap/e/caidiscuz/ &amp;&amp; /aliyun/webserver/php5.2.17/bin/php pushnews2.php -9 -u&quot;
+</code></pre><p>另外解决图片下载时发现的一个解决问题的小技巧。<br>用接口的形式来访问某个php文件时，发现下载图片失败，提示权限不足 无法在该目录做图片存储操作。<br>然后检查目录的权限是wr-wr-wr 0666，理论上是支持目录的读写。但为什么不能做图片下载操作呢？<br>因为没有x权限就无法在该目录下执行任何命令，包括mkdir、ls等。创建图片不仅需要 w权限还需要x权限。<br>改为wrx-r-xr-x 0755权限后就能正常下载图片。</p>
+<p>解决问题的技巧是先给足0777权限后，待问题解决了，确定是目录权限不足导致脚本无法正常运行的时候，再把目录的权限收回来，逐步提高权限。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
+      &lt;p&gt;PHP死循环 来处理定时任务的效率是很低的。（众多网友评价）&lt;br&gt;大家都建议使用Linux内置的定时任务crontab命令来调用php脚本来实现。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PHP定时任务的两种方法：&lt;/strong&gt;&lt;br&gt;1、web方式调用php网页，但是这样存在
+    
+    </summary>
+    
+      <category term="后端开发" scheme="http://wuage.me/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Linux，定时任务，后端开发" scheme="http://wuage.me/tags/Linux%EF%BC%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象--抽象方法的理解</title>
+    <link href="http://wuage.me/2016/08/21/ooc-abstract-method/"/>
+    <id>http://wuage.me/2016/08/21/ooc-abstract-method/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.889Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
+<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
+<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
+<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
+<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
+<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
+&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
+&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
+&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
     
     </summary>
     
@@ -175,26 +216,35 @@ public class ChildFactory
   </entry>
   
   <entry>
-    <title>面向对象--抽象方法的理解</title>
-    <link href="http://wuage.me/2016/08/21/ooc-abstract-method/"/>
-    <id>http://wuage.me/2016/08/21/ooc-abstract-method/</id>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://wuage.me/2016/08/21/ooc-class-template/"/>
+    <id>http://wuage.me/2016/08/21/ooc-class-template/</id>
     <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.889Z</updated>
+    <updated>2016-08-21T09:49:03.148Z</updated>
     
-    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
-&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
-&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
-&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
     
     </summary>
     
@@ -321,6 +371,38 @@ public class ChildFactory
   </entry>
   
   <entry>
+    <title>Android从入门到放弃-Service</title>
+    <link href="http://wuage.me/2016/08/06/android-Service/"/>
+    <id>http://wuage.me/2016/08/06/android-Service/</id>
+    <published>2016-08-05T16:00:00.000Z</published>
+    <updated>2016-08-21T09:20:45.236Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
+<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
+<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
+<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
+<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
+<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
+<p>以上基本是Service最简单的使用说明。</p>
+<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
+<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面说到了四大组件中的Activity，今天说一下Service。&lt;br&gt;四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。&lt;br&gt;如你所写的MyActivity是继承于Activity，MyService继承于Service。&lt;/p&gt;
+&lt;p&gt;Googl
+    
+    </summary>
+    
+      <category term="android" scheme="http://wuage.me/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://wuage.me/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android从入门到放弃</title>
     <link href="http://wuage.me/2016/08/06/android-directory/"/>
     <id>http://wuage.me/2016/08/06/android-directory/</id>
@@ -419,38 +501,6 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
     
       &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
 &lt;p&gt;
-    
-    </summary>
-    
-      <category term="android" scheme="http://wuage.me/categories/android/"/>
-    
-    
-      <category term="android" scheme="http://wuage.me/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android从入门到放弃-Service</title>
-    <link href="http://wuage.me/2016/08/06/android-Service/"/>
-    <id>http://wuage.me/2016/08/06/android-Service/</id>
-    <published>2016-08-05T16:00:00.000Z</published>
-    <updated>2016-08-21T09:20:45.236Z</updated>
-    
-    <content type="html"><![CDATA[<p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
-<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
-<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
-<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
-<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
-<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
-<p>以上基本是Service最简单的使用说明。</p>
-<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
-<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面说到了四大组件中的Activity，今天说一下Service。&lt;br&gt;四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。&lt;br&gt;如你所写的MyActivity是继承于Activity，MyService继承于Service。&lt;/p&gt;
-&lt;p&gt;Googl
     
     </summary>
     
