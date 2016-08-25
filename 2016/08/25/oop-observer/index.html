@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,15 +104,40 @@
 
 
 
-<meta name="description" content="紫薇爱我别走~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="伍阿哥">
-<meta property="og:url" content="http://wuage.me/tags/android/index.html">
+<meta name="description" content="电影无间道很多人都看过，讲的是关于黑社会与警局卧底的故事。我们今天就聊一下无间道和面向对象的观察者模式到底有什么关系。
+//被观察者
+public interface Observable
+{
+    void notifyEverybody(); //通知所有人
+}
+
+//曾志伟 扮演的 黑社会老大 韩琛
+public class HanLaoda implements Observable {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《无间道》观察者模式">
+<meta property="og:url" content="http://wuage.me/2016/08/25/oop-observer/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="紫薇爱我别走~">
+<meta property="og:description" content="电影无间道很多人都看过，讲的是关于黑社会与警局卧底的故事。我们今天就聊一下无间道和面向对象的观察者模式到底有什么关系。
+//被观察者
+public interface Observable
+{
+    void notifyEverybody(); //通知所有人
+}
+
+//曾志伟 扮演的 黑社会老大 韩琛
+public class HanLaoda implements Observable {">
+<meta property="og:updated_time" content="2016-08-25T05:41:15.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="伍阿哥">
-<meta name="twitter:description" content="紫薇爱我别走~">
+<meta name="twitter:title" content="《无间道》观察者模式">
+<meta name="twitter:description" content="电影无间道很多人都看过，讲的是关于黑社会与警局卧底的故事。我们今天就聊一下无间道和面向对象的观察者模式到底有什么关系。
+//被观察者
+public interface Observable
+{
+    void notifyEverybody(); //通知所有人
+}
+
+//曾志伟 扮演的 黑社会老大 韩琛
+public class HanLaoda implements Observable {">
 
 
 
@@ -133,9 +158,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/tags/android/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/25/oop-observer/"/>
 
-  <title> 标签: android | 伍阿哥 </title>
+  <title> 《无间道》观察者模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +181,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,102 +292,234 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        android
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/06/android-Service/" itemprop="url">
-              
-                <span itemprop="name">Android从入门到放弃-Service</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-06T00:00:00+08:00"
-              content="2016-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/06/android-Thread/" itemprop="url">
-              
-                <span itemprop="name">Android从入门到放弃-线程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-06T00:00:00+08:00"
-              content="2016-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/06/android-directory/" itemprop="url">
-              
-                <span itemprop="name">Android从入门到放弃</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-06T00:00:00+08:00"
-              content="2016-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《无间道》观察者模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-25T00:00:00+08:00" content="2016-08-25">
+              2016-08-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/25/oop-observer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/oop-observer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>电影无间道很多人都看过，讲的是关于黑社会与警局卧底的故事。<br>我们今天就聊一下无间道和面向对象的观察者模式到底有什么关系。</p>
+<pre><code>//被观察者
+public interface Observable
+{
+    void notifyEverybody(); //通知所有人
+}
+
+//曾志伟 扮演的 黑社会老大 韩琛
+public class HanLaoda implements Observable {
+    ArrayList&lt;Observer&gt; observerList;//卧底们(除了梁朝伟还有很多卧底,比如陈朝伟、张朝伟)
+
+    public void notifyEverybody()
+    {
+        for (Observer item : observerList) {
+            item.reportWangSir();
+        }
+    }
+
+    //韩老大为了扩充势力，只管招小弟进来，但他不知道招进来的是卧底
+    public void addObserver(Observer observer)
+    {
+        observerList.add(observer);
+    }
+
+    //做违法事情
+    public void doWeifa()
+    {
+        //卧底们一旦发现韩老大要做违法事情，就开始秘密通知警方
+        notifyEverybody();
+    }
+}
+
+//观察者
+public interface Observer
+{
+    //卧底 一旦发现有违法交易，立马做出行动。报告给 黄秋生扮演的 王Sir。
+    void reportWangSir();
+}
+
+//梁朝伟 扮演的 梁永仁 是警局安插到黑社会的卧底
+public class LiangChaowei implements Observer
+{
+    public void reportWangSir()
+    {
+        //报告给王Sir
+    }
+}
+
+//陈朝伟
+public class ChenChaowei implements Observer
+{
+    public void reportWangSir()
+    {
+        //报告给王Sir
+    }
+}
+
+//张朝伟
+public class ZhangChaowei implements Observer
+{
+    public void reportWangSir()
+    {
+        //报告给王Sir
+    }
+}
+
+public class Client
+{
+    public static void main()
+    {
+        HanLaoda han = new HanLaoda();
+        //韩老大为了扩充势力，只管招小弟进来，但他不知道招进来的是卧底
+        han.addObserver(new LiangChaowei());
+        han.addObserver(new ChenChaowei());
+        han.addObserver(new ZhangChaowei());
+
+        //做违法事情
+        han.doWeifa();
+    }
+}
+</code></pre><p><strong>那观察者模式在什么情况下使用呢？</strong><br>观察者可以实现消息的广播，一个消息可以触发多个事件，这是观察者模式非常重要的功能。</p>
+<p><strong>使用观察者模式也有个重点问题要解决： </strong><br><strong>广播链的问题</strong><br>如果你做过数据库的触发器，你就应该知道有一个触发器链的问题，比如表 A 上写了一个触发器，<br>内容是一个字段更新后更新表 B 的一条数据，而表 B 上也有个触发器，要更新表 C，表 C 也有触发器…,完蛋了，<br>这个数据库基本上就毁掉了！我们的观察者模式也是一样的问题，一个观察者可以有双重身份，即使观察者，<br>也是被观察者，这没什么问题呀，但是链一旦建立，这个逻辑就比较复杂，可维护性非常差，根据经验建议，<br>在一个观察者模式中多出现一个对象既是观察者也是被观察者，也就是说消息多转发一次（传递两次），这还是比较好控制的。 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/22/linux-cron/" rel="next" title="PHP结合Linux的cron命令实现定时任务">
+                <i class="fa fa-chevron-left"></i> PHP结合Linux的cron命令实现定时任务
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +527,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/25/oop-observer/"
+           data-title="《无间道》观察者模式" data-url="http://wuage.me/2016/08/25/oop-observer/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -389,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://wuage.me/images/avatar.jpg"
@@ -467,6 +641,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -579,6 +764,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

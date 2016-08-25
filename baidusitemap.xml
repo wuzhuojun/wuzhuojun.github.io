@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://wuage.me/2016/08/25/oop-observer/</loc>
+    <lastmod>2016-08-25T05:41:15.772Z</lastmod>
+    <data>
+        <display>
+        <title>《无间道》观察者模式</title>
+        <pubTime>2016-08-24T16:00:00.000Z</pubTime>
+        
+        <tag>面向对象，架构设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构设计" url="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://wuage.me/2016/08/22/linux-cron/</loc>
@@ -66,7 +86,7 @@
 
     
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-android-EIT/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-android-EIT/</loc>
     <lastmod>2016-08-21T09:53:20.092Z</lastmod>
     <data>
         <display>
@@ -86,7 +106,7 @@
 
     
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-abstract-method/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-abstract-method/</loc>
     <lastmod>2016-08-21T09:49:03.889Z</lastmod>
     <data>
         <display>
@@ -106,7 +126,7 @@
 
     
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-class-template/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-class-template/</loc>
     <lastmod>2016-08-21T09:49:03.148Z</lastmod>
     <data>
         <display>

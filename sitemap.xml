@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuage.me/2016/08/25/oop-observer/</loc>
+    
+    <lastmod>2016-08-25T05:41:15.772Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuage.me/about/index.html</loc>
     
     <lastmod>2016-08-22T15:00:14.053Z</lastmod>
@@ -37,21 +44,21 @@
   </url>
   
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-android-EIT/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-android-EIT/</loc>
     
     <lastmod>2016-08-21T09:53:20.092Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-abstract-method/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-abstract-method/</loc>
     
     <lastmod>2016-08-21T09:49:03.889Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuage.me/2016/08/21/ooc-class-template/</loc>
+    <loc>http://wuage.me/2016/08/21/oop-class-template/</loc>
     
     <lastmod>2016-08-21T09:49:03.148Z</lastmod>
     
