@@ -421,8 +421,8 @@ classpath &apo
             
               
                 
-                <a class="post-title-link" href="/2016/08/06/android-Service/" itemprop="url">
-                  Android从入门到放弃-Service
+                <a class="post-title-link" href="/2016/08/06/android-Thread/" itemprop="url">
+                  Android从入门到放弃-线程
                 </a>
               
             
@@ -465,8 +465,8 @@ classpath &apo
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/android-Service/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-Service/" itemprop="commentsCount"></span>
+                <a href="/2016/08/06/android-Thread/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-Thread/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -491,12 +491,12 @@ classpath &apo
       
         
           
-          前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
-Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体
+          Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
+Google这样设计的目的在于让主线程不需要处理
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/android-Service/#more" rel="contents">
+            <a class="btn" href="/2016/08/06/android-Thread/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
