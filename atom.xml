@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuage.me/"/>
-  <updated>2016-08-25T05:41:15.772Z</updated>
+  <updated>2016-08-26T06:25:24.238Z</updated>
   <id>http://wuage.me/</id>
   
   <author>
@@ -14,6 +14,389 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>访问者模式</title>
+    <link href="http://wuage.me/2016/08/26/oop-visitor/"/>
+    <id>http://wuage.me/2016/08/26/oop-visitor/</id>
+    <published>2016-08-25T16:00:00.000Z</published>
+    <updated>2016-08-26T06:25:24.238Z</updated>
+    
+    <content type="html"><![CDATA[<p>访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）<br>我们以统计功能举例来说明访问者模式的使用</p>
+<p>核心是，分两个模块<br>一个模块负责数据的产生<br>一个模块负责遍历数据，展示数据。</p>
+<p>我们先看下在不使用访问者模式的情况下的数据展示处理</p>
+<pre><code>//员工
+public abstract class Employee
+{
+    private int sex;
+    private String name;
+    private int age;
+    private int money;
+
+    public int getSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public abstract void getOtherInfo(); //输出别的一些内容
+
+    public abstract void accept(IVisitor visitore);
+}
+
+//码农
+public class CodeMan extends Employee
+{
+    private String code; //用的是什么类型的编程语言
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 code
+    }
+
+    //码农运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//美工妹纸
+public class UIGirl extends Employee
+{
+    private String design; //设计UI图是用什么工具
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 design
+    }
+
+    //美工妹纸运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//项目经理
+public class Manager extends Employee
+{
+    private String manage; //用的是什么管理软件
+
+    public void setManage(String manage) {
+        this.manage = manage;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 manage
+    }
+
+    //项目经理运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+
+public interface IVisitor
+{
+    public void visit(Employee employee);
+}
+
+public class EmployeeVisitor implements IVisitor
+{
+    @Override
+    public void visit(Employee employee) {
+        report(employee);
+    }
+
+    public void report(Employee employee)
+    {
+        //获取了 员工的所有属性
+        employee.getAge();
+        employee.getMoney();
+        employee.getName();
+        employee.getOtherInfo();
+        employee.getSex();
+
+        //按照某种表格方式输出
+    }
+}
+
+
+//客户端类
+public class Client
+{
+    public void main()
+    {
+        ArrayList&lt;Employee&gt; employeeList = getEmployeeList();
+
+        for (Employee item :employeeList) {
+            item.accept(new EmployeeVisitor());
+        }
+    }
+
+
+    public ArrayList&lt;Employee&gt; getEmployeeList()
+    {
+        ArrayList&lt;Employee&gt; employees = new ArrayList&lt;Employee&gt;();
+        CodeMan zhangSan = new CodeMan();
+        zhangSan.setAge(25);
+        zhangSan.setSex(1);
+        zhangSan.setName(&quot;张三&quot;);
+        zhangSan.setMoney(5000);
+        zhangSan.setCode(&quot;java&quot;);
+
+        UIGirl lisi = new UIGirl();
+        lisi.setAge(23);
+        lisi.setSex(0);
+        lisi.setName(&quot;李四&quot;);
+        lisi.setMoney(5000);
+        lisi.setDesign(&quot;PS&quot;);
+
+        Manager wangWu = new Manager();
+        wangWu.setAge(30);
+        wangWu.setSex(1);
+        wangWu.setName(&quot;王五&quot;);
+        wangWu.setMoney(8000);
+        wangWu.setManage(&quot;youdao&quot;);
+
+        return employees;
+    }
+}
+</code></pre><p>这样处理的时候是将数据模型和数据展示(report)都放在同一个模块实现。</p>
+<p>我们来看下访问者模式是如何处理的。</p>
+<pre><code>//员工
+public abstract class Employee
+{
+    private int sex;
+    private String name;
+    private int age;
+    private int money;
+
+    public int getSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public abstract void getOtherInfo(); //输出别的一些内容
+
+    public abstract void accept(IVisitor visitore);
+}
+
+//码农
+public class CodeMan extends Employee
+{
+    private String code; //用的是什么类型的编程语言
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 code
+    }
+
+    //码农运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//美工妹纸
+public class UIGirl extends Employee
+{
+    private String design; //设计UI图是用什么工具
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 design
+    }
+
+    //美工妹纸运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//项目经理
+public class Manager extends Employee
+{
+    private String manage; //用的是什么管理软件
+
+    public void setManage(String manage) {
+        this.manage = manage;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 manage
+    }
+
+    //项目经理运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+
+public interface IVisitor
+{
+    public void visit(Employee employee);
+}
+
+public class EmployeeVisitor implements IVisitor
+{
+    @Override
+    public void visit(Employee employee) {
+        report(employee);
+    }
+
+    public void report(Employee employee)
+    {
+        //获取了 员工的所有属性
+        employee.getAge();
+        employee.getMoney();
+        employee.getName();
+        employee.getOtherInfo();
+        employee.getSex();
+
+        //按照某种表格方式输出
+    }
+}
+
+
+//客户端类
+public class Client
+{
+    public void main()
+    {
+        ArrayList&lt;Employee&gt; employeeList = getEmployeeList();
+
+        for (Employee item :employeeList) {
+            item.accept(new EmployeeVisitor());
+        }
+    }
+
+
+    public ArrayList&lt;Employee&gt; getEmployeeList()
+    {
+        ArrayList&lt;Employee&gt; employees = new ArrayList&lt;Employee&gt;();
+        CodeMan zhangSan = new CodeMan();
+        zhangSan.setAge(25);
+        zhangSan.setSex(1);
+        zhangSan.setName(&quot;张三&quot;);
+        zhangSan.setMoney(5000);
+        zhangSan.setCode(&quot;java&quot;);
+
+        UIGirl lisi = new UIGirl();
+        lisi.setAge(23);
+        lisi.setSex(0);
+        lisi.setName(&quot;李四&quot;);
+        lisi.setMoney(5000);
+        lisi.setDesign(&quot;PS&quot;);
+
+        Manager wangWu = new Manager();
+        wangWu.setAge(30);
+        wangWu.setSex(1);
+        wangWu.setName(&quot;王五&quot;);
+        wangWu.setMoney(8000);
+        wangWu.setManage(&quot;youdao&quot;);
+
+        return employees;
+    }
+}
+</code></pre><p><strong>执行流程：</strong><br>首先通过循环遍历所有元素；<br>其次，每个员工对象都定义了一个访问者；<br>再其次，员工对象把自己做为一个参数调用访问者 visit 方法；<br>然后，访问者调用自己内部的计算逻辑，计算出相应的数据和表格元素；<br>最后，访问者打印出报表和数据； </p>
+<p>访问者模式将数据展示独立出来，这样做使得<strong>责任单一</strong></p>
+<p><strong>访问者模式的优点</strong><br><strong>符合单一职责原则：</strong><br>凡是适用访问者模式的场景中，元素类中需要封装在访问者中的操作必定是与元素类本身关系不大且是易变的操作，使用访问者模式一方面符合单一职责原则，另一方面，因为被封装的操作通常来说都是易变的，所以当发生变化时，就可以在不改变元素类本身的前提下，实现对变化部分的扩展。</p>
+<p><strong>扩展性良好：</strong><br>元素类可以通过接受不同的访问者来实现对不同操作的扩展。<br>访问者模式的适用场景假如一个对象中存在着一些与本对象不相干（或者关系较弱）的操作，为了避免这些操作污染这个对象，则可以使用访问者模式来把这些操作封装到访问者中去。假如一组对象中，存在着相似的操作，为了避免出现大量重复的代码，也可以将这些重复的操作封装到访问者中去。<br>但是，访问者模式并不是那么完美，它也有着致命的缺陷：增加新的元素类比较困难。通过访问者模式的代码可以看到，在访问者类中，每一个元素类都有它对应的处理方法，也就是说，每增加一个元素类都需要修改访问者类（也包括访问者类的子类或者实现类），修改起来相当麻烦。也就是说，在元素类数目不确定的情况下，应该慎用访问者模式。所以，访问者模式比较适用于对已有功能的重构，比如说，一个项目的基本功能已经确定下来，元素类的数据已经基本确定下来不会变了，会变的只是这些元素内的相关操作，这时候，我们可以使用访问者模式对原有的代码进行重构一遍，这样一来，就可以在不修改各个元素类的情况下，对原有功能进行修改。</p>
+<p><strong>总结</strong><br>正如《设计模式》的作者GoF对访问者模式的描述：大多数情况下，你并需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。当然这只是针对真正的大牛而言。在现实情况下（至少是我所处的环境当中），很多人往往沉迷于设计模式，他们使用一种设计模式时，从来不去认真考虑所使用的模式是否适合这种场景，而往往只是想展示一下自己对面向对象设计的驾驭能力。编程时有这种心理，往往会发生滥用设计模式的情况。所以，在学习设计模式时，一定要理解模式的适用性。必须做到使用一种模式是因为了解它的优点，不使用一种模式是因为了解它的弊端；而不是使用一种模式是因为不了解它的弊端，不使用一种模式是因为不了解它的优点。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）&lt;br&gt;我们以统计功能举例来说明访问者模式的使用&lt;/p&gt;
+&lt;p&gt;核心是，分两个模块&lt;br&gt;一个模块负责数据的产生&lt;br&gt;一个模块负责遍历数据，展示数据。&lt;/p
+    
+    </summary>
+    
+      <category term="架构设计" scheme="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="面向对象，架构设计" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>《无间道》观察者模式</title>
@@ -241,6 +624,46 @@ public interface Observable
   </entry>
   
   <entry>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
+    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>以面向对象的角度理解android的架构设计</title>
     <link href="http://wuage.me/2016/08/21/oop-android-EIT/"/>
     <id>http://wuage.me/2016/08/21/oop-android-EIT/</id>
@@ -313,46 +736,6 @@ public class ChildFactory
     <summary type="html">
     
       &lt;p&gt;高焕堂老师的android面向对象视频，讲的非常好。 &lt;a href=&quot;http://www.maiziedu.com/u/2021/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.maiziedu.com/u/2021/&lt;/a&gt;&lt;b
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
-    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
     
     </summary>
     
@@ -479,38 +862,6 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
   </entry>
   
   <entry>
-    <title>Android从入门到放弃-Service</title>
-    <link href="http://wuage.me/2016/08/06/android-Service/"/>
-    <id>http://wuage.me/2016/08/06/android-Service/</id>
-    <published>2016-08-05T16:00:00.000Z</published>
-    <updated>2016-08-21T09:20:45.236Z</updated>
-    
-    <content type="html"><![CDATA[<p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
-<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
-<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
-<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
-<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
-<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
-<p>以上基本是Service最简单的使用说明。</p>
-<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
-<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面说到了四大组件中的Activity，今天说一下Service。&lt;br&gt;四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。&lt;br&gt;如你所写的MyActivity是继承于Activity，MyService继承于Service。&lt;/p&gt;
-&lt;p&gt;Googl
-    
-    </summary>
-    
-      <category term="android" scheme="http://wuage.me/categories/android/"/>
-    
-    
-      <category term="android" scheme="http://wuage.me/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Android从入门到放弃</title>
     <link href="http://wuage.me/2016/08/06/android-directory/"/>
     <id>http://wuage.me/2016/08/06/android-directory/</id>
@@ -609,6 +960,38 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
     
       &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
 &lt;p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://wuage.me/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://wuage.me/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android从入门到放弃-Service</title>
+    <link href="http://wuage.me/2016/08/06/android-Service/"/>
+    <id>http://wuage.me/2016/08/06/android-Service/</id>
+    <published>2016-08-05T16:00:00.000Z</published>
+    <updated>2016-08-21T09:20:45.236Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面说到了四大组件中的Activity，今天说一下Service。<br>四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。<br>如你所写的MyActivity是继承于Activity，MyService继承于Service。</p>
+<p>Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体的部分由应用开发者来填补，这样能满足不同的业务场景下的系统构建。<br>从哲学来说是留空，空就是一切。</p>
+<p>大家要知道你想调用某个类的方法，你首先得知道这个类名是什么，才能实例化它调用它的方法。<br>那么，有个疑问，这些Android的基础架构是提前写好的，MyActivity具体类是应用开发者后来才写的，系统怎么知道我写的这个类名叫MyActivity呢？<br>答案是通过 AndroidManifest.xml。<br>大家创建四大组件需要把自己实现类的类名写到这个xml上，然后编译时最终通过反射的机制来获取到类名。系统得到了类名之后，能够实例化这个对象，并调用它的方法。<br>并且一部分方法是通过IoC的机制来进行调用的，比如大量 onXXX() 的方法就是系统调用子类的具体实现。</p>
+<p>好了前面说了四大组件如何与Android系统之间的关系。<br>下面回到正题，说一下Service是如何使用。</p>
+<p>首先，我们需要实现一个Service具体类，比如MyService，它继承于Service。<br>Activity通过startService来启动Service，并创建ServiceConnection 来管理 Activity与Service之间的连接，这个有点类似于B/S结构的概念。MyService实现一个onBinder方法，这个方法是在Activity启动Service时由系统来回调，系统将Service创建的Binder对象引用传递到Activity，然后Activity就通过Binder来调用Service的方法。<br>比如让Service启动一个子线程做网络请求，处理好了之后，Service要通知Activity更新界面。</p>
+<p>其中有一种方式是通过接口的形式来实现。Activity实现接口，Service通过调用接口方法回调到Activity，Activity再通过Handler来发送消息更新界面。</p>
+<p>以上基本是Service最简单的使用说明。</p>
+<p>有人会提问，既然主线程可通过启动子线程来执行后台任务，为什么还需要Service呢？<br>原因在于系统赋予了Service比主线程的Activity具有更高的优先级。那么当系统资源不足的时候，要做垃圾回收，那么Activity下的多线程很有可能被回收掉，那么线程没执行完的事情就会停止掉。而Service具有更高的优先级，以它来启动的线程不轻易被回收。</p>
+<p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode4" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode4</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面说到了四大组件中的Activity，今天说一下Service。&lt;br&gt;四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。&lt;br&gt;如你所写的MyActivity是继承于Activity，MyService继承于Service。&lt;/p&gt;
+&lt;p&gt;Googl
     
     </summary>
     

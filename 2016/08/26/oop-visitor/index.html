@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面向对象," />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,40 +104,34 @@
 
 
 
-<meta name="description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta name="description" content="访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）我们以统计功能举例来说明访问者模式的使用
+核心是，分两个模块一个模块负责数据的产生一个模块负责遍历数据，展示数据。
+我们先看下在不使用访问者模式的情况下的数据展示处理
+//员工
+public abstract class Employee
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
+    private int sex;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象--类模板的理解">
-<meta property="og:url" content="http://wuage.me/2016/08/21/oop-class-template/index.html">
+<meta property="og:title" content="访问者模式">
+<meta property="og:url" content="http://wuage.me/2016/08/26/oop-visitor/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta property="og:description" content="访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）我们以统计功能举例来说明访问者模式的使用
+核心是，分两个模块一个模块负责数据的产生一个模块负责遍历数据，展示数据。
+我们先看下在不使用访问者模式的情况下的数据展示处理
+//员工
+public abstract class Employee
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
-<meta property="og:updated_time" content="2016-08-21T09:49:03.148Z">
+    private int sex;">
+<meta property="og:updated_time" content="2016-08-26T06:25:24.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象--类模板的理解">
-<meta name="twitter:description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta name="twitter:title" content="访问者模式">
+<meta name="twitter:description" content="访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）我们以统计功能举例来说明访问者模式的使用
+核心是，分两个模块一个模块负责数据的产生一个模块负责遍历数据，展示数据。
+我们先看下在不使用访问者模式的情况下的数据展示处理
+//员工
+public abstract class Employee
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
+    private int sex;">
 
 
 
@@ -158,9 +152,9 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/21/oop-class-template/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/26/oop-visitor/"/>
 
-  <title> 面向对象--类模板的理解 | 伍阿哥 </title>
+  <title> 访问者模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +307,7 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
             
             
               
-                面向对象--类模板的理解
+                访问者模式
               
             
           </h1>
@@ -325,8 +319,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
+            <time itemprop="dateCreated" datetime="2016-08-26T00:00:00+08:00" content="2016-08-26">
+              2016-08-26
             </time>
           </span>
 
@@ -339,8 +333,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/面向对象/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
                   </a>
                 </span>
 
@@ -355,8 +349,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/21/oop-class-template/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-class-template/" itemprop="commentsCount"></span>
+                <a href="/2016/08/26/oop-visitor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/oop-visitor/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -384,17 +378,366 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
       
 
       
-        <p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
+        <p>访问者模式最常用的使用场景是统计功能（报表）、数据过滤功能（拦截器）、或者结合别的模式来使用（状态模式、代理模式等）<br>我们以统计功能举例来说明访问者模式的使用</p>
+<p>核心是，分两个模块<br>一个模块负责数据的产生<br>一个模块负责遍历数据，展示数据。</p>
+<p>我们先看下在不使用访问者模式的情况下的数据展示处理</p>
+<pre><code>//员工
+public abstract class Employee
 {
-    private T age;
+    private int sex;
+    private String name;
+    private int age;
+    private int money;
+
+    public int getSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public abstract void getOtherInfo(); //输出别的一些内容
+
+    public abstract void accept(IVisitor visitore);
+}
+
+//码农
+public class CodeMan extends Employee
+{
+    private String code; //用的是什么类型的编程语言
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 code
+    }
+
+    //码农运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//美工妹纸
+public class UIGirl extends Employee
+{
+    private String design; //设计UI图是用什么工具
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 design
+    }
+
+    //美工妹纸运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//项目经理
+public class Manager extends Employee
+{
+    private String manage; //用的是什么管理软件
+
+    public void setManage(String manage) {
+        this.manage = manage;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 manage
+    }
+
+    //项目经理运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
 }
 
 
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
+public interface IVisitor
+{
+    public void visit(Employee employee);
+}
+
+public class EmployeeVisitor implements IVisitor
+{
+    @Override
+    public void visit(Employee employee) {
+        report(employee);
+    }
+
+    public void report(Employee employee)
+    {
+        //获取了 员工的所有属性
+        employee.getAge();
+        employee.getMoney();
+        employee.getName();
+        employee.getOtherInfo();
+        employee.getSex();
+
+        //按照某种表格方式输出
+    }
+}
+
+
+//客户端类
+public class Client
+{
+    public void main()
+    {
+        ArrayList&lt;Employee&gt; employeeList = getEmployeeList();
+
+        for (Employee item :employeeList) {
+            item.accept(new EmployeeVisitor());
+        }
+    }
+
+
+    public ArrayList&lt;Employee&gt; getEmployeeList()
+    {
+        ArrayList&lt;Employee&gt; employees = new ArrayList&lt;Employee&gt;();
+        CodeMan zhangSan = new CodeMan();
+        zhangSan.setAge(25);
+        zhangSan.setSex(1);
+        zhangSan.setName(&quot;张三&quot;);
+        zhangSan.setMoney(5000);
+        zhangSan.setCode(&quot;java&quot;);
+
+        UIGirl lisi = new UIGirl();
+        lisi.setAge(23);
+        lisi.setSex(0);
+        lisi.setName(&quot;李四&quot;);
+        lisi.setMoney(5000);
+        lisi.setDesign(&quot;PS&quot;);
+
+        Manager wangWu = new Manager();
+        wangWu.setAge(30);
+        wangWu.setSex(1);
+        wangWu.setName(&quot;王五&quot;);
+        wangWu.setMoney(8000);
+        wangWu.setManage(&quot;youdao&quot;);
+
+        return employees;
+    }
+}
+</code></pre><p>这样处理的时候是将数据模型和数据展示(report)都放在同一个模块实现。</p>
+<p>我们来看下访问者模式是如何处理的。</p>
+<pre><code>//员工
+public abstract class Employee
+{
+    private int sex;
+    private String name;
+    private int age;
+    private int money;
+
+    public int getSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public abstract void getOtherInfo(); //输出别的一些内容
+
+    public abstract void accept(IVisitor visitore);
+}
+
+//码农
+public class CodeMan extends Employee
+{
+    private String code; //用的是什么类型的编程语言
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 code
+    }
+
+    //码农运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//美工妹纸
+public class UIGirl extends Employee
+{
+    private String design; //设计UI图是用什么工具
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 design
+    }
+
+    //美工妹纸运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+//项目经理
+public class Manager extends Employee
+{
+    private String manage; //用的是什么管理软件
+
+    public void setManage(String manage) {
+        this.manage = manage;
+    }
+
+    @Override
+    public void getOtherInfo() {
+        //输出 manage
+    }
+
+    //项目经理运行访问者访问
+    @Override
+    public void accept(IVisitor visitore) {
+        visitore.visit(this);
+    }
+}
+
+
+public interface IVisitor
+{
+    public void visit(Employee employee);
+}
+
+public class EmployeeVisitor implements IVisitor
+{
+    @Override
+    public void visit(Employee employee) {
+        report(employee);
+    }
+
+    public void report(Employee employee)
+    {
+        //获取了 员工的所有属性
+        employee.getAge();
+        employee.getMoney();
+        employee.getName();
+        employee.getOtherInfo();
+        employee.getSex();
+
+        //按照某种表格方式输出
+    }
+}
+
+
+//客户端类
+public class Client
+{
+    public void main()
+    {
+        ArrayList&lt;Employee&gt; employeeList = getEmployeeList();
+
+        for (Employee item :employeeList) {
+            item.accept(new EmployeeVisitor());
+        }
+    }
+
+
+    public ArrayList&lt;Employee&gt; getEmployeeList()
+    {
+        ArrayList&lt;Employee&gt; employees = new ArrayList&lt;Employee&gt;();
+        CodeMan zhangSan = new CodeMan();
+        zhangSan.setAge(25);
+        zhangSan.setSex(1);
+        zhangSan.setName(&quot;张三&quot;);
+        zhangSan.setMoney(5000);
+        zhangSan.setCode(&quot;java&quot;);
+
+        UIGirl lisi = new UIGirl();
+        lisi.setAge(23);
+        lisi.setSex(0);
+        lisi.setName(&quot;李四&quot;);
+        lisi.setMoney(5000);
+        lisi.setDesign(&quot;PS&quot;);
+
+        Manager wangWu = new Manager();
+        wangWu.setAge(30);
+        wangWu.setSex(1);
+        wangWu.setName(&quot;王五&quot;);
+        wangWu.setMoney(8000);
+        wangWu.setManage(&quot;youdao&quot;);
+
+        return employees;
+    }
+}
+</code></pre><p><strong>执行流程：</strong><br>首先通过循环遍历所有元素；<br>其次，每个员工对象都定义了一个访问者；<br>再其次，员工对象把自己做为一个参数调用访问者 visit 方法；<br>然后，访问者调用自己内部的计算逻辑，计算出相应的数据和表格元素；<br>最后，访问者打印出报表和数据； </p>
+<p>访问者模式将数据展示独立出来，这样做使得<strong>责任单一</strong></p>
+<p><strong>访问者模式的优点</strong><br><strong>符合单一职责原则：</strong><br>凡是适用访问者模式的场景中，元素类中需要封装在访问者中的操作必定是与元素类本身关系不大且是易变的操作，使用访问者模式一方面符合单一职责原则，另一方面，因为被封装的操作通常来说都是易变的，所以当发生变化时，就可以在不改变元素类本身的前提下，实现对变化部分的扩展。</p>
+<p><strong>扩展性良好：</strong><br>元素类可以通过接受不同的访问者来实现对不同操作的扩展。<br>访问者模式的适用场景假如一个对象中存在着一些与本对象不相干（或者关系较弱）的操作，为了避免这些操作污染这个对象，则可以使用访问者模式来把这些操作封装到访问者中去。假如一组对象中，存在着相似的操作，为了避免出现大量重复的代码，也可以将这些重复的操作封装到访问者中去。<br>但是，访问者模式并不是那么完美，它也有着致命的缺陷：增加新的元素类比较困难。通过访问者模式的代码可以看到，在访问者类中，每一个元素类都有它对应的处理方法，也就是说，每增加一个元素类都需要修改访问者类（也包括访问者类的子类或者实现类），修改起来相当麻烦。也就是说，在元素类数目不确定的情况下，应该慎用访问者模式。所以，访问者模式比较适用于对已有功能的重构，比如说，一个项目的基本功能已经确定下来，元素类的数据已经基本确定下来不会变了，会变的只是这些元素内的相关操作，这时候，我们可以使用访问者模式对原有的代码进行重构一遍，这样一来，就可以在不修改各个元素类的情况下，对原有功能进行修改。</p>
+<p><strong>总结</strong><br>正如《设计模式》的作者GoF对访问者模式的描述：大多数情况下，你并需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。当然这只是针对真正的大牛而言。在现实情况下（至少是我所处的环境当中），很多人往往沉迷于设计模式，他们使用一种设计模式时，从来不去认真考虑所使用的模式是否适合这种场景，而往往只是想展示一下自己对面向对象设计的驾驭能力。编程时有这种心理，往往会发生滥用设计模式的情况。所以，在学习设计模式时，一定要理解模式的适用性。必须做到使用一种模式是因为了解它的优点，不使用一种模式是因为了解它的弊端；而不是使用一种模式是因为不了解它的弊端，不使用一种模式是因为不了解它的优点。 </p>
 
       
     </div>
@@ -417,7 +760,7 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
       
         <div class="post-tags">
           
-            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
           
         </div>
       
@@ -426,17 +769,13 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/21/oop-android-EIT/" rel="next" title="以面向对象的角度理解android的架构设计">
-                <i class="fa fa-chevron-left"></i> 以面向对象的角度理解android的架构设计
+              <a href="/2016/08/25/oop-observer/" rel="next" title="《无间道》观察者模式">
+                <i class="fa fa-chevron-left"></i> 《无间道》观察者模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/21/architecture-evolution /" rel="prev" title="架构设计的演变历程">
-                架构设计的演变历程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,8 +801,8 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/21/oop-class-template/"
-           data-title="面向对象--类模板的理解" data-url="http://wuage.me/2016/08/21/oop-class-template/">
+      <div class="ds-thread" data-thread-key="2016/08/26/oop-visitor/"
+           data-title="访问者模式" data-url="http://wuage.me/2016/08/26/oop-visitor/">
       </div>
     
   </div>
