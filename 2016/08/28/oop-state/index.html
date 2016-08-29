@@ -112,11 +112,13 @@
 <meta property="og:site_name" content="伍阿哥">
 <meta property="og:description" content="我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。
 以电梯来举例：电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，">
-<meta property="og:updated_time" content="2016-08-29T03:05:33.886Z">
+<meta property="og:image" content="http://o94lqiatj.bkt.clouddn.com/5533156.png">
+<meta property="og:updated_time" content="2016-08-29T05:54:35.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="状态模式">
 <meta name="twitter:description" content="我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。
 以电梯来举例：电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，">
+<meta name="twitter:image" content="http://o94lqiatj.bkt.clouddn.com/5533156.png">
 
 
 
@@ -363,7 +365,7 @@
       
 
       
-        <p>我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。</p>
+        <p>我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。<br><img src="http://o94lqiatj.bkt.clouddn.com/5533156.png" alt=""></p>
 <p><strong>以电梯来举例：</strong><br>电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。<br>所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，这样就不符合开闭原则。</p>
 <p>我们来看下如何用状态模式来优雅的处理问题。</p>
 <pre><code>public abstract class LiftState

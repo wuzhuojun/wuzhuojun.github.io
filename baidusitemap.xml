@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://wuage.me/2016/08/28/oop-state/</loc>
+    <lastmod>2016-08-29T05:54:35.736Z</lastmod>
+    <data>
+        <display>
+        <title>状态模式</title>
+        <pubTime>2016-08-27T16:00:00.000Z</pubTime>
+        
+        <tag>面向对象，架构设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构设计" url="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuage.me/2016/08/29/oop-command/</loc>
     <lastmod>2016-08-29T03:40:57.656Z</lastmod>
     <data>
@@ -30,26 +50,6 @@
         <display>
         <title>装饰模式</title>
         <pubTime>2016-08-26T16:00:00.000Z</pubTime>
-        
-        <tag>面向对象，架构设计</tag>
-         
-         
-           
-             
-              <breadCrumb title="架构设计" url="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuage.me/2016/08/28/oop-state/</loc>
-    <lastmod>2016-08-29T03:05:33.886Z</lastmod>
-    <data>
-        <display>
-        <title>状态模式</title>
-        <pubTime>2016-08-27T16:00:00.000Z</pubTime>
         
         <tag>面向对象，架构设计</tag>
          
