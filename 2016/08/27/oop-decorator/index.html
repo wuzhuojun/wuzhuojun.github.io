@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,15 +104,16 @@
 
 
 
-<meta name="description" content="紫薇,爱我别走~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="伍阿哥">
-<meta property="og:url" content="http://wuage.me/categories/面向对象/index.html">
+<meta name="description" content="装饰模式可以给我们很好的帮助，通过装饰模式重新封装一个类，而不是通过继承来完成，简单点说，三个继承关系 Father,Son,GrandSon 三个类，我要再 Son 类上增强一些功能怎么办？我想你会坚决的顶回去！不允许，对了，为什么呢？你增强的功能是修改 Son 类中的方法吗？增加方法吗 ？对 GrandSon 的影响哪？特别是 GrandSon 有多个的情况，你怎么办？这个评估的工作量就是够你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装饰模式">
+<meta property="og:url" content="http://wuage.me/2016/08/27/oop-decorator/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="紫薇,爱我别走~">
+<meta property="og:description" content="装饰模式可以给我们很好的帮助，通过装饰模式重新封装一个类，而不是通过继承来完成，简单点说，三个继承关系 Father,Son,GrandSon 三个类，我要再 Son 类上增强一些功能怎么办？我想你会坚决的顶回去！不允许，对了，为什么呢？你增强的功能是修改 Son 类中的方法吗？增加方法吗 ？对 GrandSon 的影响哪？特别是 GrandSon 有多个的情况，你怎么办？这个评估的工作量就是够你">
+<meta property="og:updated_time" content="2016-08-29T03:10:58.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="伍阿哥">
-<meta name="twitter:description" content="紫薇,爱我别走~">
+<meta name="twitter:title" content="装饰模式">
+<meta name="twitter:description" content="装饰模式可以给我们很好的帮助，通过装饰模式重新封装一个类，而不是通过继承来完成，简单点说，三个继承关系 Father,Son,GrandSon 三个类，我要再 Son 类上增强一些功能怎么办？我想你会坚决的顶回去！不允许，对了，为什么呢？你增强的功能是修改 Son 类中的方法吗？增加方法吗 ？对 GrandSon 的影响哪？特别是 GrandSon 有多个的情况，你怎么办？这个评估的工作量就是够你">
 
 
 
@@ -133,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/categories/面向对象/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/27/oop-decorator/"/>
 
-  <title> 分类: 面向对象 | 伍阿哥 </title>
+  <title> 装饰模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,103 +268,236 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        面向对象
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-abstract-method/" itemprop="url">
-              
-                <span itemprop="name">面向对象--抽象方法的理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-android-EIT/" itemprop="url">
-              
-                <span itemprop="name">以面向对象的角度理解android的架构设计</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-class-template/" itemprop="url">
-              
-                <span itemprop="name">面向对象--类模板的理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                装饰模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T00:00:00+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/oop-decorator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/oop-decorator/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>装饰模式可以给我们很好的帮助，通过装饰模式重新封装一个类，而不是通过继承来完成，<br>简单点说，三个继承关系 Father,Son,GrandSon 三个类，我要再 Son 类上增强一些功能怎么办？<br>我想你会坚决的顶回去！不允许，对了，为什么呢？你增强的功能是修改 Son 类中的方法吗？增加方法吗 ？<br>对 GrandSon 的影响哪？特别是 GrandSon 有多个的情况，你怎么办？这个评估的工作量就是够你受的，所以这个是不允许的，那还是要解决问题的呀，怎么办？<br>通过建立 SonDecorator 类来修饰 Son，等于说是创建了一个新的类，这个对原有程序没有变更，通过扩充很好的完成了这次变更。</p>
+<p>以煮咖啡为例：</p>
+<pre><code>public abstract class Cafe
+{
+    public abstract void Cook(); //煮咖啡
+}
+
+//摩卡咖啡
+public class MochaCafe extends Cafe
+{
+    public void Cook() {
+    //煮摩卡咖啡
+    }
+}
+
+//猫屎咖啡
+public class CivetCoffee extends Cafe
+{
+    public void Cook() {
+    //煮猫屎咖啡
+    }
+}
+
+//带牛奶的摩卡咖啡
+public class MilkMochaCafe extends MochaCafe
+{
+    public void AddMilk()
+    {
+        //加一些牛奶
+    }
+
+    public void Cook() {
+        //煮猫屎咖啡
+        super.Cook();
+        //煮完以后 再加牛奶
+        AddMilk();
+    }
+}
+
+//带糖的猫屎咖啡
+public class SugarCivetCoffee extends MochaCafe
+{
+    public void AddSugar()
+    {
+        //加一些糖
+    }
+    public void Cook() {
+        //煮猫屎咖啡
+        super.Cook();
+        //煮完以后 再加一些糖
+        AddSugar();
+    }
+}
+</code></pre><p>咖啡的种类越来越多，配料的除了糖和牛奶 还 增加了蜂蜜等，继承关系变得越来越多。<br>继承关系越多系统架构越复杂，维护成本就会变高。<br>装饰者，通过组合方式来扩展功能，而非继承的方式。<br>我们来看下如何处理：</p>
+<pre><code>//摩卡咖啡装饰者
+public class CafeDecorator extends MochaCafe
+{
+    private MochaCafe mochaCafe;
+
+    public CafeDecorator(MochaCafe mochaCafe) {
+        this.mochaCafe = mochaCafe;
+    }
+
+    public void AddSugar()
+    {
+        //加一些糖
+    }
+
+    public void AddMilk()
+    {
+        //加牛奶
+    }
+
+    public void Cook()
+    {
+        super.Cook();
+        AddSugar(); //煮咖啡之后加点糖
+        AddMilk(); //煮咖啡之后加牛奶
+    }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/27/oop-command/" rel="next" title="命令模式">
+                <i class="fa fa-chevron-left"></i> 命令模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/28/oop-state/" rel="prev" title="状态模式">
+                状态模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -371,6 +505,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/27/oop-decorator/"
+           data-title="装饰模式" data-url="http://wuage.me/2016/08/27/oop-decorator/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -390,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://wuage.me/images/avatar.jpg"
@@ -482,6 +633,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -594,6 +756,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

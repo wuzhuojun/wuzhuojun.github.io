@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,15 +104,34 @@
 
 
 
-<meta name="description" content="紫薇,爱我别走~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="伍阿哥">
-<meta property="og:url" content="http://wuage.me/categories/面向对象/index.html">
+<meta name="description" content="背景简介：开发软件，项目划分几个小组：需求组，美工组，代码组。开发流程，客户提出需求=》需求分析=》美工设计界面=》写代码实现功能
+//项目小组抽象类
+public abstract class Group
+{
+    public abstract void find();
+    public abstract void add();
+    public abstract void dele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令模式">
+<meta property="og:url" content="http://wuage.me/2016/08/27/oop-command/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="紫薇,爱我别走~">
+<meta property="og:description" content="背景简介：开发软件，项目划分几个小组：需求组，美工组，代码组。开发流程，客户提出需求=》需求分析=》美工设计界面=》写代码实现功能
+//项目小组抽象类
+public abstract class Group
+{
+    public abstract void find();
+    public abstract void add();
+    public abstract void dele">
+<meta property="og:updated_time" content="2016-08-29T03:29:11.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="伍阿哥">
-<meta name="twitter:description" content="紫薇,爱我别走~">
+<meta name="twitter:title" content="命令模式">
+<meta name="twitter:description" content="背景简介：开发软件，项目划分几个小组：需求组，美工组，代码组。开发流程，客户提出需求=》需求分析=》美工设计界面=》写代码实现功能
+//项目小组抽象类
+public abstract class Group
+{
+    public abstract void find();
+    public abstract void add();
+    public abstract void dele">
 
 
 
@@ -133,9 +152,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/categories/面向对象/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/27/oop-command/"/>
 
-  <title> 分类: 面向对象 | 伍阿哥 </title>
+  <title> 命令模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +175,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,103 +286,329 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        面向对象
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-abstract-method/" itemprop="url">
-              
-                <span itemprop="name">面向对象--抽象方法的理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-android-EIT/" itemprop="url">
-              
-                <span itemprop="name">以面向对象的角度理解android的架构设计</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/21/oop-class-template/" itemprop="url">
-              
-                <span itemprop="name">面向对象--类模板的理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-21T00:00:00+08:00"
-              content="2016-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                命令模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T00:00:00+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/oop-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/oop-command/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>背景简介：<br>开发软件，项目划分几个小组：需求组，美工组，代码组。<br>开发流程，客户提出需求=》需求分析=》美工设计界面=》写代码实现功能</p>
+<pre><code>//项目小组抽象类
+public abstract class Group
+{
+    public abstract void find();
+    public abstract void add();
+    public abstract void delete();
+    public abstract void change();
+    public abstract void action();
+}
+
+//需求组
+public class XuqiuGroup extends Group
+{
+    public void find()
+    {
+        //找到需求人员
+    }
+    public void add()
+    {
+        //叫需求人员增加页面
+    }
+    public void delete()
+    {
+        //叫需求人员删除页面
+    }
+    public void change()
+    {
+        //叫需求人员修改页面
+    }
+    public void action()
+    {
+        //叫需求人员执行以上动作
+    }
+}
+
+//美工组
+public class MeigongGroup extends Group
+{
+    public void find()
+    {
+        //找到美工
+    }
+    public void add()
+    {
+        //叫美工增加页面
+    }
+    public void delete()
+    {
+        //叫美工删除页面
+    }
+    public void change()
+    {
+        //叫美工修改页面
+    }
+    public void action()
+    {
+        //叫美工执行以上动作
+    }
+}
+
+//代码组
+public class CodeGroup extends Group
+{
+    public void find()
+    {
+        //找到程序员
+    }
+    public void add()
+    {
+        //叫程序员增加页面
+    }
+    public void delete()
+    {
+        //叫程序员删除页面
+    }
+    public void change()
+    {
+        //叫程序员修改页面
+    }
+    public void action()
+    {
+        //叫程序员执行以上动作
+    }
+}
+
+
+public class Client
+{
+    public void static main()
+    {
+        XuqiuGroup xg = new XuqiuGroup();
+        xg.find();  //找到需求
+        xg.add();   //增加一个页面
+        xg.action();//给我去执行
+        //找完需求后又去找美工再去找程序员。客户很累，发火了，你们给我一个接头人。
+        //我不管你们内部如何实现，我只想告诉你们我想要什么，你们给我去做就行。
+    }
+}
+</code></pre><p>客户的想法随时改变，一会增加功能、一会删除。然后，还得把想法跟每个组沟通。疲于奔命。<br>客户是甲方，他说这样修改需求太累了，我还得找这么多组的人来商量如何处理一个需求。<br>这样吧，你们找个接头人给我，我只需要把我的想法告诉他，至于内部怎么实现我不管，你们自己商量好如何去做。</p>
+<p>于是，把客户的想法封装成一个个的命令，比如增加需求的命令 和 删除需求的命令。<br>再来找个接头人，让他把这个命令分发到每个组执行下去。</p>
+<pre><code>public abstract class Command
+{
+    protected XuqiuGroup xg = new XuqiuGroup();
+    protected MeigongGroup mg = new MeigongGroup();
+    protected CodeGroup cg = new CodeGroup();
+    public abstract void excute();  //你要我做什么我就做什么
+}
+
+//增加需求命令
+public class AddXuqiuCommand extends Command
+{
+    //找到需求方 增加需求，再让美工 设计界面，最后让程序员实现功能
+    public void excute()
+    {
+        xg.find();
+        xg.add();
+        xg.action();
+        mg.find();
+        mg.add();
+        mg.action();
+        cg.find();
+        cg.add();
+        cg.action();
+    }
+}
+
+//删除需求命令
+public class DelXuqiuCommand extends Command
+{
+    //找到需求方 删除需求，最后让程序员删除该功能
+    public void excute()
+    {
+        xg.find();
+        xg.add();
+        xg.action();
+        cg.find();
+        cg.add();
+        cg.action();
+    }
+}
+
+//调度器 接头人
+public class Invoker
+{
+    private Command command;
+    //客户向我发出命令
+    public void setCommand(Command command)
+    {
+        this.command = command;
+    }
+    //执行客户给的命令
+    public void action()
+    {
+        command.excute();
+    }
+}
+
+public class Client
+{
+    public static void main()
+    {
+        //接头人 你来给我执行一个 增加需求的命令
+        Invoker invoker = new Invoker();
+        invoker.setCommand(new AddXuqiuCommand());
+        invoker.action();
+        //接头人 你来给我执行一个 删除需求的命令
+        invoker.setCommand(new DelXuqiuCommand());
+        invoker.action();
+    }
+}
+</code></pre><p>最终，这么实现就轻松很多了，客户不需要找到每个组下达命令。</p>
+<p>但是，命令模式同时也有个缺点，当命令的组合情况复杂的时候，就是封装的命令就有很多。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/26/oop-visitor/" rel="next" title="访问者模式">
+                <i class="fa fa-chevron-left"></i> 访问者模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/27/oop-decorator/" rel="prev" title="装饰模式">
+                装饰模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -371,6 +616,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/27/oop-command/"
+           data-title="命令模式" data-url="http://wuage.me/2016/08/27/oop-command/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -390,8 +643,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://wuage.me/images/avatar.jpg"
@@ -482,6 +744,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -594,6 +867,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

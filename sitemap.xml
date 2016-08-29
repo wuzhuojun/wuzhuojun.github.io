@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuage.me/2016/08/27/oop-command/</loc>
+    
+    <lastmod>2016-08-29T03:29:11.970Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuage.me/2016/08/27/oop-decorator/</loc>
+    
+    <lastmod>2016-08-29T03:10:58.625Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuage.me/2016/08/28/oop-state/</loc>
+    
+    <lastmod>2016-08-29T03:05:33.886Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuage.me/2016/08/26/oop-visitor/</loc>
     
     <lastmod>2016-08-26T06:25:24.238Z</lastmod>
