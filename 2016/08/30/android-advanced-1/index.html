@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面向对象," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -104,31 +104,22 @@
 
 
 
-<meta name="description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
+<meta name="description" content="1、有序广播：https://github.com/wuzhuojun/BroadcastExample
+说明：在manifest.xml设置的广播是静态注册，只要软件安装在手机上广播就能够生效。用代码实现的是属于动态注册，只有软件启动后广播才能够生效。除了能够接收系统的广播，也能够自定义广播。
+Android的广播按照接收顺序分两种类型：无序广播和有序广播。无序广播是所有注册者都能收到的广播。有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象--抽象方法的理解">
-<meta property="og:url" content="http://wuage.me/2016/08/21/oop-abstract-method/index.html">
+<meta property="og:title" content="Android进阶练习一">
+<meta property="og:url" content="http://wuage.me/2016/08/30/android-advanced-1/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
-<meta property="og:updated_time" content="2016-08-21T09:49:03.889Z">
+<meta property="og:description" content="1、有序广播：https://github.com/wuzhuojun/BroadcastExample
+说明：在manifest.xml设置的广播是静态注册，只要软件安装在手机上广播就能够生效。用代码实现的是属于动态注册，只有软件启动后广播才能够生效。除了能够接收系统的广播，也能够自定义广播。
+Android的广播按照接收顺序分两种类型：无序广播和有序广播。无序广播是所有注册者都能收到的广播。有">
+<meta property="og:updated_time" content="2016-08-30T14:57:38.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象--抽象方法的理解">
-<meta name="twitter:description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
+<meta name="twitter:title" content="Android进阶练习一">
+<meta name="twitter:description" content="1、有序广播：https://github.com/wuzhuojun/BroadcastExample
+说明：在manifest.xml设置的广播是静态注册，只要软件安装在手机上广播就能够生效。用代码实现的是属于动态注册，只有软件启动后广播才能够生效。除了能够接收系统的广播，也能够自定义广播。
+Android的广播按照接收顺序分两种类型：无序广播和有序广播。无序广播是所有注册者都能收到的广播。有">
 
 
 
@@ -149,9 +140,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/21/oop-abstract-method/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/30/android-advanced-1/"/>
 
-  <title> 面向对象--抽象方法的理解 | 伍阿哥 </title>
+  <title> Android进阶练习一 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +295,7 @@
             
             
               
-                面向对象--抽象方法的理解
+                Android进阶练习一
               
             
           </h1>
@@ -316,8 +307,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
+            <time itemprop="dateCreated" datetime="2016-08-30T00:00:00+08:00" content="2016-08-30">
+              2016-08-30
             </time>
           </span>
 
@@ -330,8 +321,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/面向对象/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
+                  <a href="/categories/移动开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动开发</span>
                   </a>
                 </span>
 
@@ -346,8 +337,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/21/oop-abstract-method/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-abstract-method/" itemprop="commentsCount"></span>
+                <a href="/2016/08/30/android-advanced-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/30/android-advanced-1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -375,12 +366,18 @@
       
 
       
-        <p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+        <p><strong>1、有序广播：</strong><br><a href="https://github.com/wuzhuojun/BroadcastExample" target="_blank" rel="external">https://github.com/wuzhuojun/BroadcastExample</a></p>
+<p>说明：<br>在manifest.xml设置的广播是静态注册，只要软件安装在手机上广播就能够生效。<br>用代码实现的是属于动态注册，只有软件启动后广播才能够生效。<br>除了能够接收系统的广播，也能够自定义广播。</p>
+<p>Android的广播按照接收顺序分两种类型：无序广播和有序广播。<br>无序广播是所有注册者都能收到的广播。<br>有序广播是能够指定接收顺序，层层下达，能够设置接收者的优先级，优先级高的先收到而且能够把传递的数据进行修改。</p>
+<p>另外广播还能够设置为本地广播，只能够是本进程才能收到的广播。</p>
+<p><strong>2、定时任务（定时访问网络数据/闹钟）</strong><br><a href="https://github.com/wuzhuojun/AlarmService" target="_blank" rel="external">https://github.com/wuzhuojun/AlarmService</a><br>说明：<br>这是实现定时访问网络的一种手段，手机切换到后台仍然能够定时请求网络数据。可以作为消息通知拉数据的处理方式。</p>
+<p>主要原理：<br>1、启动一个Service<br>2、Service使用AlarmManager启动定时闹钟<br>3、定时闹钟执行时发送一个广播事件<br>4、自定义的广播接收者收到广播后执行网络请求动作，再次启动Service 回到第1步，一直循环</p>
+<p><strong>3、跨进程通信</strong><br><a href="https://github.com/wuzhuojun/AIDLService" target="_blank" rel="external">https://github.com/wuzhuojun/AIDLService</a><br>说明：<br>APP有时候需要调用第三方APP的服务，那么就要用到跨进程通信（IPC）。<br>由于是跨进程通信就要考虑到通信协议的问题，Android提供AIDL的解决方案。<br>APP请求方是客户端，APP被访问方是服务端。<br>首先要定义AIDL文件，编译后会生成接口文件（是一种代码自动生成的原理）<br>服务端注册远程服务，实现AIDL生成的接口并作为Binder对象返回。</p>
+<p>客户端实现绑定服务，并定义ServiceConnection来接收服务端传过来的Binder引用，通过该引用能调用远程服务的功能。<br>需要注意的是，客户端的AIDL与服务端的AIDL文件的命名空间要一致，否则通信会失败。</p>
+<p><strong>4、ListView + 下拉刷新 + 分页加载更多 + 数据缓存 + Fresco图片缓存组件</strong><br><a href="https://github.com/wuzhuojun/ListViewExample" target="_blank" rel="external">https://github.com/wuzhuojun/ListViewExample</a><br>说明：<br>使用PtrClassicFrameLayout组件来实现列表的下拉刷新，支持多种控件的下拉动作。<a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" target="_blank" rel="external">https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh</a><br>判断列表滚动的位置来判断是否已经上拉到底部，然后执行分页加载。<br>网络请求用OKHttp <a href="https://github.com/square/okhttp" target="_blank" rel="external">https://github.com/square/okhttp</a><br>数据缓存用的是ACache，轻量级只有一个Java文件，你值得拥有。 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a></p>
+<p><strong>5、把ListViewExample改造MVP模式，增加了单元测试的练习</strong><br><a href="https://github.com/wuzhuojun/MVPexample" target="_blank" rel="external">https://github.com/wuzhuojun/MVPexample</a><br>说明：<br>以往MVC模式下，Activity及承担了View的角色同时也要处理业务逻辑，代码变得很臃肿。<br>MVP模式把业务逻辑从Activity和Fragment拆分到Presenter。<br>流程是：<br>Activity/Fragment接收用户动作 =》 Presenter请求业务逻辑的调度 =》Model请求网络数据=》Model回调Presenter=》Presenter回调View=》View回调Activity/Fragment实现界面响应</p>
+<p>由于View、Presenter、Model都有对应的接口实现因此能够执行一路往上的回调动作。<br>注意这里的Model是执行网络请求或者数据缓存的模块，而Bean是业务数据实体。</p>
+<p>看了关于重构方面的书再次认识到单元测试的重要性，它能够帮你更高效的编写正确的生产代码。<br>执行单元测试时，看到一路的绿灯的感觉别提有多爽了。</p>
 
       
     </div>
@@ -403,7 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -412,17 +409,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/21/oop-android-EIT/" rel="next" title="以面向对象的角度理解android的架构设计">
-                <i class="fa fa-chevron-left"></i> 以面向对象的角度理解android的架构设计
+              <a href="/2016/08/29/oop-command/" rel="next" title="命令模式">
+                <i class="fa fa-chevron-left"></i> 命令模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/22/linux-cron/" rel="prev" title="PHP结合Linux的cron命令实现定时任务">
-                PHP结合Linux的cron命令实现定时任务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -448,8 +441,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/21/oop-abstract-method/"
-           data-title="面向对象--抽象方法的理解" data-url="http://wuage.me/2016/08/21/oop-abstract-method/">
+      <div class="ds-thread" data-thread-key="2016/08/30/android-advanced-1/"
+           data-title="Android进阶练习一" data-url="http://wuage.me/2016/08/30/android-advanced-1/">
       </div>
     
   </div>

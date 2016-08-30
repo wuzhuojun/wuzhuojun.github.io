@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面向对象," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -104,31 +104,15 @@
 
 
 
-<meta name="description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面向对象--抽象方法的理解">
-<meta property="og:url" content="http://wuage.me/2016/08/21/oop-abstract-method/index.html">
+<meta name="description" content="紫薇，快到我碗里来~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="伍阿哥">
+<meta property="og:url" content="http://wuage.me/categories/移动开发/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
-<meta property="og:updated_time" content="2016-08-21T09:49:03.889Z">
+<meta property="og:description" content="紫薇，快到我碗里来~">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象--抽象方法的理解">
-<meta name="twitter:description" content="首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N 等多种以N为结尾的算法。
-父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的">
+<meta name="twitter:title" content="伍阿哥">
+<meta name="twitter:description" content="紫薇，快到我碗里来~">
 
 
 
@@ -149,9 +133,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/21/oop-abstract-method/"/>
+  <link rel="canonical" href="http://wuage.me/categories/移动开发/"/>
 
-  <title> 面向对象--抽象方法的理解 | 伍阿哥 </title>
+  <title> 分类: 移动开发 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,162 +267,47 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                面向对象--抽象方法的理解
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/面向对象/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/21/oop-abstract-method/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-abstract-method/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
-
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        移动开发
+        <small>分类</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2016/08/30/android-advanced-1/" itemprop="url">
+              
+                <span itemprop="name">Android进阶练习一</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-08-30T00:00:00+08:00"
+              content="2016-08-30" >
+          08-30
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/21/oop-android-EIT/" rel="next" title="以面向对象的角度理解android的架构设计">
-                <i class="fa fa-chevron-left"></i> 以面向对象的角度理解android的架构设计
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/22/linux-cron/" rel="prev" title="PHP结合Linux的cron命令实现定时任务">
-                PHP结合Linux的cron命令实现定时任务 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -446,14 +315,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/08/21/oop-abstract-method/"
-           data-title="面向对象--抽象方法的理解" data-url="http://wuage.me/2016/08/21/oop-abstract-method/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -473,17 +334,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://wuage.me/images/avatar.jpg"
@@ -574,17 +426,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -697,10 +538,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

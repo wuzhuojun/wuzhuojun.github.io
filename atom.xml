@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>伍阿哥</title>
-  <subtitle>紫薇,爱我别走~</subtitle>
+  <subtitle>紫薇，快到我碗里来~</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuage.me/"/>
-  <updated>2016-08-29T03:40:57.656Z</updated>
+  <updated>2016-08-30T14:57:38.211Z</updated>
   <id>http://wuage.me/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android进阶练习一</title>
+    <link href="http://wuage.me/2016/08/30/android-advanced-1/"/>
+    <id>http://wuage.me/2016/08/30/android-advanced-1/</id>
+    <published>2016-08-29T16:00:00.000Z</published>
+    <updated>2016-08-30T14:57:38.211Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1、有序广播：</strong><br><a href="https://github.com/wuzhuojun/BroadcastExample" target="_blank" rel="external">https://github.com/wuzhuojun/BroadcastExample</a></p>
+<p>说明：<br>在manifest.xml设置的广播是静态注册，只要软件安装在手机上广播就能够生效。<br>用代码实现的是属于动态注册，只有软件启动后广播才能够生效。<br>除了能够接收系统的广播，也能够自定义广播。</p>
+<p>Android的广播按照接收顺序分两种类型：无序广播和有序广播。<br>无序广播是所有注册者都能收到的广播。<br>有序广播是能够指定接收顺序，层层下达，能够设置接收者的优先级，优先级高的先收到而且能够把传递的数据进行修改。</p>
+<p>另外广播还能够设置为本地广播，只能够是本进程才能收到的广播。</p>
+<p><strong>2、定时任务（定时访问网络数据/闹钟）</strong><br><a href="https://github.com/wuzhuojun/AlarmService" target="_blank" rel="external">https://github.com/wuzhuojun/AlarmService</a><br>说明：<br>这是实现定时访问网络的一种手段，手机切换到后台仍然能够定时请求网络数据。可以作为消息通知拉数据的处理方式。</p>
+<p>主要原理：<br>1、启动一个Service<br>2、Service使用AlarmManager启动定时闹钟<br>3、定时闹钟执行时发送一个广播事件<br>4、自定义的广播接收者收到广播后执行网络请求动作，再次启动Service 回到第1步，一直循环</p>
+<p><strong>3、跨进程通信</strong><br><a href="https://github.com/wuzhuojun/AIDLService" target="_blank" rel="external">https://github.com/wuzhuojun/AIDLService</a><br>说明：<br>APP有时候需要调用第三方APP的服务，那么就要用到跨进程通信（IPC）。<br>由于是跨进程通信就要考虑到通信协议的问题，Android提供AIDL的解决方案。<br>APP请求方是客户端，APP被访问方是服务端。<br>首先要定义AIDL文件，编译后会生成接口文件（是一种代码自动生成的原理）<br>服务端注册远程服务，实现AIDL生成的接口并作为Binder对象返回。</p>
+<p>客户端实现绑定服务，并定义ServiceConnection来接收服务端传过来的Binder引用，通过该引用能调用远程服务的功能。<br>需要注意的是，客户端的AIDL与服务端的AIDL文件的命名空间要一致，否则通信会失败。</p>
+<p><strong>4、ListView + 下拉刷新 + 分页加载更多 + 数据缓存 + Fresco图片缓存组件</strong><br><a href="https://github.com/wuzhuojun/ListViewExample" target="_blank" rel="external">https://github.com/wuzhuojun/ListViewExample</a><br>说明：<br>使用PtrClassicFrameLayout组件来实现列表的下拉刷新，支持多种控件的下拉动作。<a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" target="_blank" rel="external">https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh</a><br>判断列表滚动的位置来判断是否已经上拉到底部，然后执行分页加载。<br>网络请求用OKHttp <a href="https://github.com/square/okhttp" target="_blank" rel="external">https://github.com/square/okhttp</a><br>数据缓存用的是ACache，轻量级只有一个Java文件，你值得拥有。 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a></p>
+<p><strong>5、把ListViewExample改造MVP模式，增加了单元测试的练习</strong><br><a href="https://github.com/wuzhuojun/MVPexample" target="_blank" rel="external">https://github.com/wuzhuojun/MVPexample</a><br>说明：<br>以往MVC模式下，Activity及承担了View的角色同时也要处理业务逻辑，代码变得很臃肿。<br>MVP模式把业务逻辑从Activity和Fragment拆分到Presenter。<br>流程是：<br>Activity/Fragment接收用户动作 =》 Presenter请求业务逻辑的调度 =》Model请求网络数据=》Model回调Presenter=》Presenter回调View=》View回调Activity/Fragment实现界面响应</p>
+<p>由于View、Presenter、Model都有对应的接口实现因此能够执行一路往上的回调动作。<br>注意这里的Model是执行网络请求或者数据缓存的模块，而Bean是业务数据实体。</p>
+<p>看了关于重构方面的书再次认识到单元测试的重要性，它能够帮你更高效的编写正确的生产代码。<br>执行单元测试时，看到一路的绿灯的感觉别提有多爽了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;1、有序广播：&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/wuzhuojun/BroadcastExample&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wuz
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://wuage.me/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://wuage.me/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>命令模式</title>
@@ -1065,82 +1099,6 @@ public interface Observable
   </entry>
   
   <entry>
-    <title>架构设计的演变历程</title>
-    <link href="http://wuage.me/2016/08/21/architecture-evolution%20/"/>
-    <id>http://wuage.me/2016/08/21/architecture-evolution /</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T10:30:56.344Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>1、无框架结构，直接调用底层API</strong><br>以往是底层平台（操作系统）提供API让上层APP去调用。<br>这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。</p>
-<p><strong>2、单层框架结构</strong><br>为了让系统开发者取得控制权，后来架构师们建造了一种框架结构。<br>APP开发者在这个框架的结构基础上开发自己的APP。<br>单层结构的模型是下图所示：<br><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-4.png" alt=""></p>
-<p>除了一部分平台的API仍然是由APP所调用外，更多是由框架反向调用APP来驱动整个APP的运行，框架定义出接口与基类，APP基础基类写出具象类，框架通过调用接口来实现对APP的反向调用，这也是IoC原理的核心。</p>
-<p><strong>3、复合型框架</strong><br>为了满足更多元化的软件业务需求的开发，从单层框架基础上延伸除了复合型框架，<br>大框架和平台是系统开发者来开发，小框架可以系统开发者或者第三方厂商开发，比如游戏引擎，小框架是可以根据不同业务来选型，APP在这种大小框架结合的情境下开发大大的降低了开发难度，加快了开发速度。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-2.png" alt=""></p>
-<p><strong>4、双层框架</strong><br>为了进一步完善框架，即平衡APP的开发速度也要提高APP的运行速度。<br>那么结合Java和C++两种语言的特性来构建这个框架，Java是应用层级与APP开发者最亲近，它是负责简化APP开发来设计的，从语言特性来说Java是更简单，容易被APP开发者所使用，C++是更运行性能高效，是负责性能担当，它与平台更亲近。<br>两者结合，使得APP的开发速度快，且运行速度快。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-1.png" alt=""></p>
-<p><strong>5、Android的框架</strong><br>Android的框架就是采用上面的双层复合型框架的方式来构建的。其实现在很多框架都采用这种方式来构建。</p>
-<p>举例个例子来了解下Android的底层框架原理。<br>1、Android的四大组件，Activity、service、BroadcastReceiver、ContentProvider。</p>
-<p>他们的作为基类是由框架所定义的，APP的开发者想要用组件的功能只能是写子类来继承使用。如定义 myActivity，由框架所调用 new myActivity 创建出对象并被调用 onCreate方法来创建窗体页面。<br>模拟一下框架的实现：<br>Activity object = new myActivity();<br>object.onCreate();<br>哪有人会疑惑，框架的代码是在这个APP开发之前就有了，那么框架代码怎么会有myActivity这个类，myActivity这个类明明是APP开发者来写的，这个名称系统开发者不可能提前知道。<br>这就归功于 AndroidManifest.xml文档，Mani文档里面要求开发者把自己定义的Activity的名称写上。<br>在APP执行阶段（run-time）Android框架就会读取开发者所写的Mani的内容，从而得知到开发者所写子类的名称，就能创建出这些应用子类的对象。<br>如下图所示：</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-5.png" alt=""></p>
-<p>2、组件与组件之间的沟通：<br>从上面大家知道组件的子类虽然由APP开发者所写，但却由框架所创建，<br>同样，组件中的通信也是由框架所负责，框架是组件间沟通的桥梁。而沟通的介质是intent，中文翻译过来是意图，实际是跟信封一个道理。<br>你给远在他方的女朋友寄一封信，你只要按照邮局规定的格式来写这封信，比如写好寄信人信息，收信人信息，和信的内容，最后投递到邮局，最终通过邮局来把这一封信寄到你女朋友手里。<br>同样APP开发者只需要按照格式写好Intent交给框架，而至于框架怎么把Intent交给对方你就不需要关注。</p>
-<p>如下图所示：</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-3.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1、无框架结构，直接调用底层API&lt;/strong&gt;&lt;br&gt;以往是底层平台（操作系统）提供API让上层APP去调用。&lt;br&gt;这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大
-    
-    </summary>
-    
-      <category term="架构设计" scheme="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="架构设计" scheme="http://wuage.me/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
-    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>以面向对象的角度理解android的架构设计</title>
     <link href="http://wuage.me/2016/08/21/oop-android-EIT/"/>
     <id>http://wuage.me/2016/08/21/oop-android-EIT/</id>
@@ -1213,6 +1171,82 @@ public class ChildFactory
     <summary type="html">
     
       &lt;p&gt;高焕堂老师的android面向对象视频，讲的非常好。 &lt;a href=&quot;http://www.maiziedu.com/u/2021/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.maiziedu.com/u/2021/&lt;/a&gt;&lt;b
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>架构设计的演变历程</title>
+    <link href="http://wuage.me/2016/08/21/architecture-evolution%20/"/>
+    <id>http://wuage.me/2016/08/21/architecture-evolution /</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T10:30:56.344Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1、无框架结构，直接调用底层API</strong><br>以往是底层平台（操作系统）提供API让上层APP去调用。<br>这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。</p>
+<p><strong>2、单层框架结构</strong><br>为了让系统开发者取得控制权，后来架构师们建造了一种框架结构。<br>APP开发者在这个框架的结构基础上开发自己的APP。<br>单层结构的模型是下图所示：<br><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-4.png" alt=""></p>
+<p>除了一部分平台的API仍然是由APP所调用外，更多是由框架反向调用APP来驱动整个APP的运行，框架定义出接口与基类，APP基础基类写出具象类，框架通过调用接口来实现对APP的反向调用，这也是IoC原理的核心。</p>
+<p><strong>3、复合型框架</strong><br>为了满足更多元化的软件业务需求的开发，从单层框架基础上延伸除了复合型框架，<br>大框架和平台是系统开发者来开发，小框架可以系统开发者或者第三方厂商开发，比如游戏引擎，小框架是可以根据不同业务来选型，APP在这种大小框架结合的情境下开发大大的降低了开发难度，加快了开发速度。</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-2.png" alt=""></p>
+<p><strong>4、双层框架</strong><br>为了进一步完善框架，即平衡APP的开发速度也要提高APP的运行速度。<br>那么结合Java和C++两种语言的特性来构建这个框架，Java是应用层级与APP开发者最亲近，它是负责简化APP开发来设计的，从语言特性来说Java是更简单，容易被APP开发者所使用，C++是更运行性能高效，是负责性能担当，它与平台更亲近。<br>两者结合，使得APP的开发速度快，且运行速度快。</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-1.png" alt=""></p>
+<p><strong>5、Android的框架</strong><br>Android的框架就是采用上面的双层复合型框架的方式来构建的。其实现在很多框架都采用这种方式来构建。</p>
+<p>举例个例子来了解下Android的底层框架原理。<br>1、Android的四大组件，Activity、service、BroadcastReceiver、ContentProvider。</p>
+<p>他们的作为基类是由框架所定义的，APP的开发者想要用组件的功能只能是写子类来继承使用。如定义 myActivity，由框架所调用 new myActivity 创建出对象并被调用 onCreate方法来创建窗体页面。<br>模拟一下框架的实现：<br>Activity object = new myActivity();<br>object.onCreate();<br>哪有人会疑惑，框架的代码是在这个APP开发之前就有了，那么框架代码怎么会有myActivity这个类，myActivity这个类明明是APP开发者来写的，这个名称系统开发者不可能提前知道。<br>这就归功于 AndroidManifest.xml文档，Mani文档里面要求开发者把自己定义的Activity的名称写上。<br>在APP执行阶段（run-time）Android框架就会读取开发者所写的Mani的内容，从而得知到开发者所写子类的名称，就能创建出这些应用子类的对象。<br>如下图所示：</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-5.png" alt=""></p>
+<p>2、组件与组件之间的沟通：<br>从上面大家知道组件的子类虽然由APP开发者所写，但却由框架所创建，<br>同样，组件中的通信也是由框架所负责，框架是组件间沟通的桥梁。而沟通的介质是intent，中文翻译过来是意图，实际是跟信封一个道理。<br>你给远在他方的女朋友寄一封信，你只要按照邮局规定的格式来写这封信，比如写好寄信人信息，收信人信息，和信的内容，最后投递到邮局，最终通过邮局来把这一封信寄到你女朋友手里。<br>同样APP开发者只需要按照格式写好Intent交给框架，而至于框架怎么把Intent交给对方你就不需要关注。</p>
+<p>如下图所示：</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-3.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;1、无框架结构，直接调用底层API&lt;/strong&gt;&lt;br&gt;以往是底层平台（操作系统）提供API让上层APP去调用。&lt;br&gt;这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大
+    
+    </summary>
+    
+      <category term="架构设计" scheme="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="架构设计" scheme="http://wuage.me/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
+    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
     
     </summary>
     
@@ -1339,46 +1373,6 @@ public class ChildFactory
   </entry>
   
   <entry>
-    <title>Android从入门到放弃-线程</title>
-    <link href="http://wuage.me/2016/08/06/android-Thread/"/>
-    <id>http://wuage.me/2016/08/06/android-Thread/</id>
-    <published>2016-08-05T16:00:00.000Z</published>
-    <updated>2016-08-21T09:20:46.551Z</updated>
-    
-    <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
-<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
-<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
-<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
-<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
-    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-    @Override
-    protected String doInBackground(String... params) {
-        return GetWebData(params[0]);
-    }
-    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-    @Override
-    protected void onPostExecute(String result) {
-        mTvContent.setText(result);
-    }
-}
-</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
-&lt;p&gt;
-    
-    </summary>
-    
-      <category term="android" scheme="http://wuage.me/categories/android/"/>
-    
-    
-      <category term="android" scheme="http://wuage.me/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Android从入门到放弃</title>
     <link href="http://wuage.me/2016/08/06/android-directory/"/>
     <id>http://wuage.me/2016/08/06/android-directory/</id>
@@ -1469,6 +1463,46 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
     
       &lt;p&gt;前面说到了四大组件中的Activity，今天说一下Service。&lt;br&gt;四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。&lt;br&gt;如你所写的MyActivity是继承于Activity，MyService继承于Service。&lt;/p&gt;
 &lt;p&gt;Googl
+    
+    </summary>
+    
+      <category term="android" scheme="http://wuage.me/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://wuage.me/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android从入门到放弃-线程</title>
+    <link href="http://wuage.me/2016/08/06/android-Thread/"/>
+    <id>http://wuage.me/2016/08/06/android-Thread/</id>
+    <published>2016-08-05T16:00:00.000Z</published>
+    <updated>2016-08-21T09:20:46.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
+<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
+<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
+<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
+<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
+    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
+    @Override
+    protected String doInBackground(String... params) {
+        return GetWebData(params[0]);
+    }
+    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
+    @Override
+    protected void onPostExecute(String result) {
+        mTvContent.setText(result);
+    }
+}
+</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。&lt;br&gt;主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。&lt;/p&gt;
+&lt;p&gt;
     
     </summary>
     
