@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuage.me/2016/08/19/hexo-blog/</loc>
+    
+    <lastmod>2016-08-31T13:47:47.378Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuage.me/2016/08/30/android-advanced-1/</loc>
     
     <lastmod>2016-08-30T14:57:38.211Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://wuage.me/tags/index.html</loc>
     
     <lastmod>2016-08-19T13:58:50.370Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuage.me/2016/08/19/hexo-blog/</loc>
-    
-    <lastmod>2016-08-19T13:42:11.010Z</lastmod>
     
   </url>
   
