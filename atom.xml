@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuage.me/"/>
-  <updated>2016-08-30T14:57:38.211Z</updated>
+  <updated>2016-08-31T13:49:03.199Z</updated>
   <id>http://wuage.me/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>老司机教你如何建博客</title>
+    <link href="http://wuage.me/2016/08/31/hexo-blog/"/>
+    <id>http://wuage.me/2016/08/31/hexo-blog/</id>
+    <published>2016-08-30T16:00:00.000Z</published>
+    <updated>2016-08-31T13:49:03.199Z</updated>
+    
+    <content type="html"><![CDATA[<p>有人说博客早就过时了，现在都玩微信、微博。<br>那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答。<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客？</a></p>
+<p>而我做的博客的想法很简单，就是在个自由的地方表达自己的想法，有关工作、生活、创业、理想。</p>
+<p>本文教大家如何用hexo一步步来搭建个人博客。（Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架–极客精神）</p>
+<p>1、购买一个域名，可以在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>选购，一般只需要花个几十块钱就能用一年。<br>2、在Github上创建一个page项目，项目的名称格式是 yourname.github.io。yourname里面替换成你的github的用户名。比如我的网站地址就是 wuzhuojun.github.io（注意Github一定要绑定邮箱否则会有问题）<br>3、在万网后台把域名设置IP解析，IP地址你可以 ping yourname.github.io来获取。<br>4、在page项目上创建一个文件名字为CNAME，文件的内容写上你的域名，比如我的 wwww.wuage.me<br>5、访问www.wuage.me成功，表示你的github page搭建成功，下一步搭建hexo。<br>6、安装node.js环境，步骤网上找。<br>7、安装hexo，用Git Bash执行mkdir hexo;cd hexo; npm install -g hexo; hexo init ;hexo g; hexo s;访问<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 显示正常，表示本地hexo系统安装成功。hexo g表示生成html网页，hexo s表示启动本地web服务。<br>8、打开站点配置文件 /_config.yml 添加以下内容，表示你要把写好的博客上传到对应的github项目</p>
+<pre><code>deploy: 
+    type: git
+    repository: git@github.com:wuzhuojun/wuzhuojun.github.io.git
+    branch: master
+</code></pre><p>9、执行hexo d命令，将网页部署到github上，再次访问博客域名，就能成功显示hexo博客。（注意每次执行hexo d时都会把page项目中的CNAME文件删掉，有一个技巧就是将CNAME文件放到/source目录下就OK）<br>10、介绍下hexo的目录结构，source是存放博客文件，日志用markdown格式写的。/source/_config.yml是站点配置文件用于配置网站相关信息。themes是存放网站的主题的脚本，这里面的_config.yml是配置主题的配置文件。hexo非常好的一点就是官方提供很多主题让你选择。<br>11、给博客安装Next主题，执行命令git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next，在站点配置文件上修改为theme: next，至此你的博客搭建的差不多了。<br>12、接下来你可以为你网站添加更多功能，已经界面调成自己喜欢的样式。Next官网：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br>13、markdown语法学习 <a href="https://www.zybuluo.com/" target="_blank" rel="external">https://www.zybuluo.com/</a><br>14、关于日志内容中的图片，建议可以用<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛云存储</a>。<br>15、OK，已经弄好了，尽情享用吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有人说博客早就过时了，现在都玩微信、微博。&lt;br&gt;那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答。&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/19743861&quot; target=&quot;_blank&quot; rel
+    
+    </summary>
+    
+      <category term="blog" scheme="http://wuage.me/categories/blog/"/>
+    
+    
+      <category term="博客" scheme="http://wuage.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Android进阶练习一</title>
@@ -1068,6 +1099,113 @@ public interface Observable
   </entry>
   
   <entry>
+    <title>面向对象--抽象方法的理解</title>
+    <link href="http://wuage.me/2016/08/21/oop-abstract-method/"/>
+    <id>http://wuage.me/2016/08/21/oop-abstract-method/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.889Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
+<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
+<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
+<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
+<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
+<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
+&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
+&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
+&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>架构设计的演变历程</title>
+    <link href="http://wuage.me/2016/08/21/architecture-evolution%20/"/>
+    <id>http://wuage.me/2016/08/21/architecture-evolution /</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T10:30:56.344Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1、无框架结构，直接调用底层API</strong><br>以往是底层平台（操作系统）提供API让上层APP去调用。<br>这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。</p>
+<p><strong>2、单层框架结构</strong><br>为了让系统开发者取得控制权，后来架构师们建造了一种框架结构。<br>APP开发者在这个框架的结构基础上开发自己的APP。<br>单层结构的模型是下图所示：<br><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-4.png" alt=""></p>
+<p>除了一部分平台的API仍然是由APP所调用外，更多是由框架反向调用APP来驱动整个APP的运行，框架定义出接口与基类，APP基础基类写出具象类，框架通过调用接口来实现对APP的反向调用，这也是IoC原理的核心。</p>
+<p><strong>3、复合型框架</strong><br>为了满足更多元化的软件业务需求的开发，从单层框架基础上延伸除了复合型框架，<br>大框架和平台是系统开发者来开发，小框架可以系统开发者或者第三方厂商开发，比如游戏引擎，小框架是可以根据不同业务来选型，APP在这种大小框架结合的情境下开发大大的降低了开发难度，加快了开发速度。</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-2.png" alt=""></p>
+<p><strong>4、双层框架</strong><br>为了进一步完善框架，即平衡APP的开发速度也要提高APP的运行速度。<br>那么结合Java和C++两种语言的特性来构建这个框架，Java是应用层级与APP开发者最亲近，它是负责简化APP开发来设计的，从语言特性来说Java是更简单，容易被APP开发者所使用，C++是更运行性能高效，是负责性能担当，它与平台更亲近。<br>两者结合，使得APP的开发速度快，且运行速度快。</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-1.png" alt=""></p>
+<p><strong>5、Android的框架</strong><br>Android的框架就是采用上面的双层复合型框架的方式来构建的。其实现在很多框架都采用这种方式来构建。</p>
+<p>举例个例子来了解下Android的底层框架原理。<br>1、Android的四大组件，Activity、service、BroadcastReceiver、ContentProvider。</p>
+<p>他们的作为基类是由框架所定义的，APP的开发者想要用组件的功能只能是写子类来继承使用。如定义 myActivity，由框架所调用 new myActivity 创建出对象并被调用 onCreate方法来创建窗体页面。<br>模拟一下框架的实现：<br>Activity object = new myActivity();<br>object.onCreate();<br>哪有人会疑惑，框架的代码是在这个APP开发之前就有了，那么框架代码怎么会有myActivity这个类，myActivity这个类明明是APP开发者来写的，这个名称系统开发者不可能提前知道。<br>这就归功于 AndroidManifest.xml文档，Mani文档里面要求开发者把自己定义的Activity的名称写上。<br>在APP执行阶段（run-time）Android框架就会读取开发者所写的Mani的内容，从而得知到开发者所写子类的名称，就能创建出这些应用子类的对象。<br>如下图所示：</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-5.png" alt=""></p>
+<p>2、组件与组件之间的沟通：<br>从上面大家知道组件的子类虽然由APP开发者所写，但却由框架所创建，<br>同样，组件中的通信也是由框架所负责，框架是组件间沟通的桥梁。而沟通的介质是intent，中文翻译过来是意图，实际是跟信封一个道理。<br>你给远在他方的女朋友寄一封信，你只要按照邮局规定的格式来写这封信，比如写好寄信人信息，收信人信息，和信的内容，最后投递到邮局，最终通过邮局来把这一封信寄到你女朋友手里。<br>同样APP开发者只需要按照格式写好Intent交给框架，而至于框架怎么把Intent交给对方你就不需要关注。</p>
+<p>如下图所示：</p>
+<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-3.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;1、无框架结构，直接调用底层API&lt;/strong&gt;&lt;br&gt;以往是底层平台（操作系统）提供API让上层APP去调用。&lt;br&gt;这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大
+    
+    </summary>
+    
+      <category term="架构设计" scheme="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="架构设计" scheme="http://wuage.me/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
+    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>以面向对象的角度理解android的架构设计</title>
     <link href="http://wuage.me/2016/08/21/oop-android-EIT/"/>
     <id>http://wuage.me/2016/08/21/oop-android-EIT/</id>
@@ -1151,113 +1289,6 @@ public class ChildFactory
   </entry>
   
   <entry>
-    <title>架构设计的演变历程</title>
-    <link href="http://wuage.me/2016/08/21/architecture-evolution%20/"/>
-    <id>http://wuage.me/2016/08/21/architecture-evolution /</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T10:30:56.344Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>1、无框架结构，直接调用底层API</strong><br>以往是底层平台（操作系统）提供API让上层APP去调用。<br>这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。</p>
-<p><strong>2、单层框架结构</strong><br>为了让系统开发者取得控制权，后来架构师们建造了一种框架结构。<br>APP开发者在这个框架的结构基础上开发自己的APP。<br>单层结构的模型是下图所示：<br><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-4.png" alt=""></p>
-<p>除了一部分平台的API仍然是由APP所调用外，更多是由框架反向调用APP来驱动整个APP的运行，框架定义出接口与基类，APP基础基类写出具象类，框架通过调用接口来实现对APP的反向调用，这也是IoC原理的核心。</p>
-<p><strong>3、复合型框架</strong><br>为了满足更多元化的软件业务需求的开发，从单层框架基础上延伸除了复合型框架，<br>大框架和平台是系统开发者来开发，小框架可以系统开发者或者第三方厂商开发，比如游戏引擎，小框架是可以根据不同业务来选型，APP在这种大小框架结合的情境下开发大大的降低了开发难度，加快了开发速度。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-2.png" alt=""></p>
-<p><strong>4、双层框架</strong><br>为了进一步完善框架，即平衡APP的开发速度也要提高APP的运行速度。<br>那么结合Java和C++两种语言的特性来构建这个框架，Java是应用层级与APP开发者最亲近，它是负责简化APP开发来设计的，从语言特性来说Java是更简单，容易被APP开发者所使用，C++是更运行性能高效，是负责性能担当，它与平台更亲近。<br>两者结合，使得APP的开发速度快，且运行速度快。</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-1.png" alt=""></p>
-<p><strong>5、Android的框架</strong><br>Android的框架就是采用上面的双层复合型框架的方式来构建的。其实现在很多框架都采用这种方式来构建。</p>
-<p>举例个例子来了解下Android的底层框架原理。<br>1、Android的四大组件，Activity、service、BroadcastReceiver、ContentProvider。</p>
-<p>他们的作为基类是由框架所定义的，APP的开发者想要用组件的功能只能是写子类来继承使用。如定义 myActivity，由框架所调用 new myActivity 创建出对象并被调用 onCreate方法来创建窗体页面。<br>模拟一下框架的实现：<br>Activity object = new myActivity();<br>object.onCreate();<br>哪有人会疑惑，框架的代码是在这个APP开发之前就有了，那么框架代码怎么会有myActivity这个类，myActivity这个类明明是APP开发者来写的，这个名称系统开发者不可能提前知道。<br>这就归功于 AndroidManifest.xml文档，Mani文档里面要求开发者把自己定义的Activity的名称写上。<br>在APP执行阶段（run-time）Android框架就会读取开发者所写的Mani的内容，从而得知到开发者所写子类的名称，就能创建出这些应用子类的对象。<br>如下图所示：</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-5.png" alt=""></p>
-<p>2、组件与组件之间的沟通：<br>从上面大家知道组件的子类虽然由APP开发者所写，但却由框架所创建，<br>同样，组件中的通信也是由框架所负责，框架是组件间沟通的桥梁。而沟通的介质是intent，中文翻译过来是意图，实际是跟信封一个道理。<br>你给远在他方的女朋友寄一封信，你只要按照邮局规定的格式来写这封信，比如写好寄信人信息，收信人信息，和信的内容，最后投递到邮局，最终通过邮局来把这一封信寄到你女朋友手里。<br>同样APP开发者只需要按照格式写好Intent交给框架，而至于框架怎么把Intent交给对方你就不需要关注。</p>
-<p>如下图所示：</p>
-<p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-3.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1、无框架结构，直接调用底层API&lt;/strong&gt;&lt;br&gt;以往是底层平台（操作系统）提供API让上层APP去调用。&lt;br&gt;这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大
-    
-    </summary>
-    
-      <category term="架构设计" scheme="http://wuage.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="架构设计" scheme="http://wuage.me/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--抽象方法的理解</title>
-    <link href="http://wuage.me/2016/08/21/oop-abstract-method/"/>
-    <id>http://wuage.me/2016/08/21/oop-abstract-method/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.889Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先是将需求中容易变化与不变化的部分进行分离。&lt;/p&gt;
-&lt;p&gt;不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。&lt;/p&gt;
-&lt;p&gt;比如：&lt;br&gt;举例一：&lt;br&gt;要实现 1+2+3+…+N 算法。&lt;/p&gt;
-&lt;p&gt;那么可以在父类实现加法部分，然后父类执行 get
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
-    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>漫谈项目设计&amp;重构&amp;性能优化</title>
     <link href="http://wuage.me/2016/08/20/talk-code/"/>
     <id>http://wuage.me/2016/08/20/talk-code/</id>
@@ -1289,37 +1320,6 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
     
     
       <category term="架构设计" scheme="http://wuage.me/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>老司机教你如何建博客</title>
-    <link href="http://wuage.me/2016/08/19/hexo-blog/"/>
-    <id>http://wuage.me/2016/08/19/hexo-blog/</id>
-    <published>2016-08-18T16:00:00.000Z</published>
-    <updated>2016-08-31T13:47:47.378Z</updated>
-    
-    <content type="html"><![CDATA[<p>有人说博客早就过时了，现在都玩微信、微博。<br>那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答。<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客？</a></p>
-<p>而我做的博客的想法很简单，就是在个自由的地方表达自己的想法，有关工作、生活、创业、理想。</p>
-<p>本文教大家如何用hexo一步步来搭建个人博客。（Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架–极客精神）</p>
-<p>1、购买一个域名，可以在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>选购，一般只需要花个几十块钱就能用一年。<br>2、在Github上创建一个page项目，项目的名称格式是 yourname.github.io。yourname里面替换成你的github的用户名。比如我的网站地址就是 wuzhuojun.github.io（注意Github一定要绑定邮箱否则会有问题）<br>3、在万网后台把域名设置IP解析，IP地址你可以 ping yourname.github.io来获取。<br>4、在page项目上创建一个文件名字为CNAME，文件的内容写上你的域名，比如我的 wwww.wuage.me<br>5、访问www.wuage.me成功，表示你的github page搭建成功，下一步搭建hexo。<br>6、安装node.js环境，步骤网上找。<br>7、安装hexo，用Git Bash执行mkdir hexo;cd hexo; npm install -g hexo; hexo init ;hexo g; hexo s;访问<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 显示正常，表示本地hexo系统安装成功。hexo g表示生成html网页，hexo s表示启动本地web服务。<br>8、打开站点配置文件 /_config.yml 添加以下内容，表示你要把写好的博客上传到对应的github项目</p>
-<pre><code>deploy: 
-    type: git
-    repository: git@github.com:wuzhuojun/wuzhuojun.github.io.git
-    branch: master
-</code></pre><p>9、执行hexo d命令，将网页部署到github上，再次访问博客域名，就能成功显示hexo博客。（注意每次执行hexo d时都会把page项目中的CNAME文件删掉，有一个技巧就是将CNAME文件放到/source目录下就OK）<br>10、介绍下hexo的目录结构，source是存放博客文件，日志用markdown格式写的。/source/_config.yml是站点配置文件用于配置网站相关信息。themes是存放网站的主题的脚本，这里面的_config.yml是配置主题的配置文件。hexo非常好的一点就是官方提供很多主题让你选择。<br>11、给博客安装Next主题，执行命令git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next，在站点配置文件上修改为theme: next，至此你的博客搭建的差不多了。<br>12、接下来你可以为你网站添加更多功能，已经界面调成自己喜欢的样式。Next官网：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br>13、markdown语法学习 <a href="https://www.zybuluo.com/" target="_blank" rel="external">https://www.zybuluo.com/</a><br>14、关于日志内容中的图片，建议可以用<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛云存储</a>。<br>15、OK，已经弄好了，尽情享用吧。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有人说博客早就过时了，现在都玩微信、微博。&lt;br&gt;那么还有必要花这么大的精力来经营自己的博客呢？关于这个话题由知乎的牛人来给你解答。&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/19743861&quot; target=&quot;_blank&quot; rel
-    
-    </summary>
-    
-      <category term="blog" scheme="http://wuage.me/categories/blog/"/>
-    
-    
-      <category term="博客" scheme="http://wuage.me/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
