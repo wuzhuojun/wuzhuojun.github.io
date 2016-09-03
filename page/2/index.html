@@ -291,132 +291,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/21/architecture-evolution /" itemprop="url">
-                  架构设计的演变历程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构设计/" itemprop="url" rel="index">
-                    <span itemprop="name">架构设计</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/21/architecture-evolution /#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/architecture-evolution /" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1、无框架结构，直接调用底层API以往是底层平台（操作系统）提供API让上层APP去调用。这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。
-2、单层框架结构为了让系
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/architecture-evolution /#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/21/oop-android-EIT/" itemprop="url">
                   以面向对象的角度理解android的架构设计
                 </a>
@@ -546,8 +420,8 @@ public class Pare
             
               
                 
-                <a class="post-title-link" href="/2016/08/21/oop-abstract-method/" itemprop="url">
-                  面向对象--抽象方法的理解
+                <a class="post-title-link" href="/2016/08/21/oop-class-template/" itemprop="url">
+                  面向对象--类模板的理解
                 </a>
               
             
@@ -590,8 +464,8 @@ public class Pare
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/21/oop-abstract-method/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-abstract-method/" itemprop="commentsCount"></span>
+                <a href="/2016/08/21/oop-class-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-class-template/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -616,15 +490,144 @@ public class Pare
       
         
           
-          首先是将需求中容易变化与不变化的部分进行分离。
-不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。
-比如：举例一：要实现 1+2+3+…+N 算法。
-那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N
-举例二：实现 1+2+3+…+N  和 123…N
+          template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
+class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/oop-abstract-method/#more" rel="contents">
+            <a class="btn" href="/2016/08/21/oop-class-template/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/21/architecture-evolution /" itemprop="url">
+                  架构设计的演变历程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
+              2016-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/21/architecture-evolution /#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/architecture-evolution /" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1、无框架结构，直接调用底层API以往是底层平台（操作系统）提供API让上层APP去调用。这样的软件控制权在APP上。举例 APP调用了平台的函数 Fun1，那么平台要对Fun1进行维护不敢随意改变这个函数，系统的更新成本大，上层APP越多，维护成本越大，导致到平台被局限。
+2、单层框架结构为了让系
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/21/architecture-evolution /#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -934,8 +937,8 @@ public class Pare
             
               
                 
-                <a class="post-title-link" href="/2016/08/06/android-directory/" itemprop="url">
-                  Android从入门到放弃
+                <a class="post-title-link" href="/2016/08/06/android-Service/" itemprop="url">
+                  Android从入门到放弃-Service
                 </a>
               
             
@@ -978,8 +981,8 @@ public class Pare
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/android-directory/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-directory/" itemprop="commentsCount"></span>
+                <a href="/2016/08/06/android-Service/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-Service/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1004,16 +1007,12 @@ public class Pare
       
         
           
-          Android入门练手的demo传送门：https://github.com/wuzhuojun/firstcode
-以下是项目的目录：
-1、fcode1Activity 与 Fragment的练习
-2、fcode2butterknife 注解的使用
-gradle设置：
-classpath &apo
+          前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
+Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/android-directory/#more" rel="contents">
+            <a class="btn" href="/2016/08/06/android-Service/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1190,8 +1189,8 @@ Google这样设计的目的在于让主线程不需要处理
             
               
                 
-                <a class="post-title-link" href="/2016/08/06/android-Service/" itemprop="url">
-                  Android从入门到放弃-Service
+                <a class="post-title-link" href="/2016/08/06/android-directory/" itemprop="url">
+                  Android从入门到放弃
                 </a>
               
             
@@ -1234,8 +1233,8 @@ Google这样设计的目的在于让主线程不需要处理
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/android-Service/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-Service/" itemprop="commentsCount"></span>
+                <a href="/2016/08/06/android-directory/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-directory/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1260,12 +1259,16 @@ Google这样设计的目的在于让主线程不需要处理
       
         
           
-          前面说到了四大组件中的Activity，今天说一下Service。四大组件都是由Android系统底层调用的，他们都是继承于各自的基类。如你所写的MyActivity是继承于Activity，MyService继承于Service。
-Google当初这么设计的原因在于，把系统核心的部分进行抽象，具体
+          Android入门练手的demo传送门：https://github.com/wuzhuojun/firstcode
+以下是项目的目录：
+1、fcode1Activity 与 Fragment的练习
+2、fcode2butterknife 注解的使用
+gradle设置：
+classpath &apo
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/android-Service/#more" rel="contents">
+            <a class="btn" href="/2016/08/06/android-directory/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

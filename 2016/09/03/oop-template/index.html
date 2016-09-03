@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面向对象," />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,40 +104,34 @@
 
 
 
-<meta name="description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta name="description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
+    public void  draw()
+    {
+        //蓝天白云">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象--类模板的理解">
-<meta property="og:url" content="http://wuage.me/2016/08/21/oop-class-template/index.html">
+<meta property="og:title" content="Template模式">
+<meta property="og:url" content="http://wuage.me/2016/09/03/oop-template/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta property="og:description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
-<meta property="og:updated_time" content="2016-08-21T09:49:03.148Z">
+    public void  draw()
+    {
+        //蓝天白云">
+<meta property="og:updated_time" content="2016-09-03T01:29:37.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象--类模板的理解">
-<meta name="twitter:description" content="template是class的模板，用template可以生成类的形态。class是object的模板，用class可以实例化出具体的对象。
-class Person&amp;lt;T&amp;gt;
+<meta name="twitter:title" content="Template模式">
+<meta name="twitter:description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
 {
-    private T age;
-}
-
-
-Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
-编译的时候先用 Person 替换成class，然后用这个 class">
+    public void  draw()
+    {
+        //蓝天白云">
 
 
 
@@ -158,9 +152,9 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/21/oop-class-template/"/>
+  <link rel="canonical" href="http://wuage.me/2016/09/03/oop-template/"/>
 
-  <title> 面向对象--类模板的理解 | 伍阿哥 </title>
+  <title> Template模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +307,7 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
             
             
               
-                面向对象--类模板的理解
+                Template模式
               
             
           </h1>
@@ -325,8 +319,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T00:00:00+08:00" content="2016-08-21">
-              2016-08-21
+            <time itemprop="dateCreated" datetime="2016-09-03T00:00:00+08:00" content="2016-09-03">
+              2016-09-03
             </time>
           </span>
 
@@ -339,8 +333,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/面向对象/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
                   </a>
                 </span>
 
@@ -355,8 +349,8 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/21/oop-class-template/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/oop-class-template/" itemprop="commentsCount"></span>
+                <a href="/2016/09/03/oop-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/oop-template/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -384,18 +378,102 @@ Person&amp;lt;int&amp;gt; p = new Person&amp;lt;int&amp;gt;();
       
 
       
-        <p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
+        <p>其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。</p>
+<p>比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，<br>另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。</p>
+<pre><code>public class E
 {
-    private T age;
+    public void  draw()
+    {
+        //蓝天白云
+    }
+}
+
+public class T extends E
+{
+    public void draw()
+    {
+        draw();
+        //海鸥
+    }
+}
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>当调用e.draw(); 时会首先调用父类的 draw 再调用子类的 draw。<br>这是一种实现方式，但这种方式有个缺点就是，子类与父类有较大的依赖，父类的 draw方法被调用后，后面改版，维护的成本就大了。我们可以使用另外一种方式来实现就是<br>Template Month模式。</p>
+<p>Template Method模式：</p>
+<pre><code>public class E
+{
+    public draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
+
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>这种由客户端代码来调用E的实体函数，再通过接口控制反转来执行T的 onDraw()<br>这种模式叫 TM模式。其中E的draw() 方法是叫 template方法，onDraw()叫 hook方法</p>
+<p>TM设计模式虽然已经很优秀了，但仍然有个不好的地方，就是 Client 这里会用到 E 这个父类，那么当有很多Client （客户端用户不止一个厂商）使用了E，是的E变化的自由度就变低了，解决办法如下。</p>
+<p>Template Month模式：</p>
+<pre><code>interface I
+{
+    public void  draw();
 }
 
 
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
+public class E implements  I
+{
+    public void draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
 
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        I e = new T();
+        e.draw();
+    }
+}
+</code></pre>
       
     </div>
 
@@ -417,7 +495,7 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
       
         <div class="post-tags">
           
-            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
           
         </div>
       
@@ -426,17 +504,13 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/21/architecture-evolution /" rel="next" title="架构设计的演变历程">
-                <i class="fa fa-chevron-left"></i> 架构设计的演变历程
+              <a href="/2016/08/31/hexo-blog/" rel="next" title="老司机教你如何建博客">
+                <i class="fa fa-chevron-left"></i> 老司机教你如何建博客
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/21/oop-android-EIT/" rel="prev" title="以面向对象的角度理解android的架构设计">
-                以面向对象的角度理解android的架构设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,8 +536,8 @@ Person&lt;int&gt; p = new Person&lt;int&gt;();
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/21/oop-class-template/"
-           data-title="面向对象--类模板的理解" data-url="http://wuage.me/2016/08/21/oop-class-template/">
+      <div class="ds-thread" data-thread-key="2016/09/03/oop-template/"
+           data-title="Template模式" data-url="http://wuage.me/2016/09/03/oop-template/">
       </div>
     
   </div>
