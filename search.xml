@@ -827,6 +827,107 @@ public class Client
     </entry>
     
     <entry>
+      <title><![CDATA[Template模式]]></title>
+      <url>http://wuage.me/2016/08/25/oop-template/</url>
+      <content type="html"><![CDATA[<p>其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。</p>
+<p>比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，<br>另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。</p>
+<pre><code>public class E
+{
+    public void  draw()
+    {
+        //蓝天白云
+    }
+}
+
+public class T extends E
+{
+    public void draw()
+    {
+        draw();
+        //海鸥
+    }
+}
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>当调用e.draw(); 时会首先调用父类的 draw 再调用子类的 draw。<br>这是一种实现方式，但这种方式有个缺点就是，子类与父类有较大的依赖，父类的 draw方法被调用后，后面改版，维护的成本就大了。我们可以使用另外一种方式来实现就是<br>Template Month模式。</p>
+<p>Template Method模式：</p>
+<pre><code>public class E
+{
+    public draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
+
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>这种由客户端代码来调用E的实体函数，再通过接口控制反转来执行T的 onDraw()<br>这种模式叫 TM模式。其中E的draw() 方法是叫 template方法，onDraw()叫 hook方法</p>
+<p>TM设计模式虽然已经很优秀了，但仍然有个不好的地方，就是 Client 这里会用到 E 这个父类，那么当有很多Client （客户端用户不止一个厂商）使用了E，是的E变化的自由度就变低了，解决办法如下。</p>
+<p>Template Month模式：</p>
+<pre><code>interface I
+{
+    public void  draw();
+}
+
+
+public class E implements  I
+{
+    public void draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
+
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        I e = new T();
+        e.draw();
+    }
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《无间道》观察者模式]]></title>
       <url>http://wuage.me/2016/08/25/oop-observer/</url>
       <content type="html"><![CDATA[<p>电影无间道很多人都看过，讲的是关于黑社会与警局卧底的故事。<br>我们今天就聊一下无间道和面向对象的观察者模式到底有什么关系。</p>
@@ -948,14 +1049,19 @@ public class Client
     </entry>
     
     <entry>
-      <title><![CDATA[面向对象--抽象方法的理解]]></title>
-      <url>http://wuage.me/2016/08/21/oop-abstract-method/</url>
-      <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
-<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
-<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
-<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
-<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
-<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+      <title><![CDATA[面向对象--类模板的理解]]></title>
+      <url>http://wuage.me/2016/08/21/oop-class-template/</url>
+      <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
 ]]></content>
     </entry>
     
@@ -976,23 +1082,6 @@ public class Client
 <p>2、组件与组件之间的沟通：<br>从上面大家知道组件的子类虽然由APP开发者所写，但却由框架所创建，<br>同样，组件中的通信也是由框架所负责，框架是组件间沟通的桥梁。而沟通的介质是intent，中文翻译过来是意图，实际是跟信封一个道理。<br>你给远在他方的女朋友寄一封信，你只要按照邮局规定的格式来写这封信，比如写好寄信人信息，收信人信息，和信的内容，最后投递到邮局，最终通过邮局来把这一封信寄到你女朋友手里。<br>同样APP开发者只需要按照格式写好Intent交给框架，而至于框架怎么把Intent交给对方你就不需要关注。</p>
 <p>如下图所示：</p>
 <p><img src="http://o94lqiatj.bkt.clouddn.com/architecture-evolution-3.png" alt=""></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[面向对象--类模板的理解]]></title>
-      <url>http://wuage.me/2016/08/21/oop-class-template/</url>
-      <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
 ]]></content>
     </entry>
     
@@ -1064,6 +1153,18 @@ public class ChildFactory
     </entry>
     
     <entry>
+      <title><![CDATA[面向对象--抽象方法的理解]]></title>
+      <url>http://wuage.me/2016/08/21/oop-abstract-method/</url>
+      <content type="html"><![CDATA[<p>首先是将需求中容易变化与不变化的部分进行分离。</p>
+<p>不容易变化的提取到父类（抽象类），容易变化的放在子类（具象类）实现。</p>
+<p>比如：<br>举例一：<br>要实现 1+2+3+…+N 算法。</p>
+<p>那么可以在父类实现加法部分，然后父类执行 getCount抽象方法，获取子类的N</p>
+<p>举例二：<br>实现 1+2+3+…+N  和 1<em>2</em>3<em>…</em>N 等多种以N为结尾的算法。</p>
+<p>父类拥有N这个值，创建多个子类，每个子类实现不同的算法，子类获取父类N的值进行算法运算，最终以 getValue的抽象方法把计算后的值返回到父类。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[漫谈项目设计&重构&性能优化]]></title>
       <url>http://wuage.me/2016/08/20/talk-code/</url>
       <content type="html"><![CDATA[<p><strong>重构的好处：</strong><br>重构能够改进软件设计，随着项目需求的变更，项目体积的变大早已与最初的设计大相径庭，代码结构变得凌乱、复杂，如果不进行重构，则很难添加新的功能。</p>
@@ -1118,29 +1219,6 @@ public class ChildFactory
     </entry>
     
     <entry>
-      <title><![CDATA[Android从入门到放弃-线程]]></title>
-      <url>http://wuage.me/2016/08/06/android-Thread/</url>
-      <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
-<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
-<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
-<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
-<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
-    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-    @Override
-    protected String doInBackground(String... params) {
-        return GetWebData(params[0]);
-    }
-    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-    @Override
-    protected void onPostExecute(String result) {
-        mTvContent.setText(result);
-    }
-}
-</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android从入门到放弃]]></title>
       <url>http://wuage.me/2016/08/06/android-directory/</url>
       <content type="html"><![CDATA[<p>Android入门练手的demo<br>传送门：<a href="https://github.com/wuzhuojun/firstcode" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode</a></p>
@@ -1190,6 +1268,29 @@ compile &apos;com.google.code.gson:gson:2.4&apos;
 <p>16、fcode16<br>RxAndroid 和 Retrofit 结合使用</p>
 <p><a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">https://github.com/ReactiveX/RxAndroid</a><br><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">https://github.com/lzyzsd/Awesome-RxJava</a></p>
 <p><a href="https://github.com/drakeet/Meizhi" target="_blank" rel="external">https://github.com/drakeet/Meizhi</a><br><a href="https://github.com/rengwuxian/RxJavaSamples" target="_blank" rel="external">https://github.com/rengwuxian/RxJavaSamples</a><br><a href="https://github.com/xcc3641/SeeWeather" target="_blank" rel="external">https://github.com/xcc3641/SeeWeather</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android从入门到放弃-线程]]></title>
+      <url>http://wuage.me/2016/08/06/android-Thread/</url>
+      <content type="html"><![CDATA[<p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
+<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
+<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
+<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
+<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
+    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
+    @Override
+    protected String doInBackground(String... params) {
+        return GetWebData(params[0]);
+    }
+    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
+    @Override
+    protected void onPostExecute(String result) {
+        mTvContent.setText(result);
+    }
+}
+</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
 ]]></content>
     </entry>
     

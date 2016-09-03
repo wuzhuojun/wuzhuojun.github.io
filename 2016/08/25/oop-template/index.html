@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android," />
+  <meta name="keywords" content="面向对象，架构设计," />
 
 
 
@@ -104,22 +104,34 @@
 
 
 
-<meta name="description" content="Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
-Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。
-如">
+<meta name="description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
+{
+    public void  draw()
+    {
+        //蓝天白云">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android从入门到放弃-线程">
-<meta property="og:url" content="http://wuage.me/2016/08/06/android-Thread/index.html">
+<meta property="og:title" content="Template模式">
+<meta property="og:url" content="http://wuage.me/2016/08/25/oop-template/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
-Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。
-如">
-<meta property="og:updated_time" content="2016-08-21T09:20:46.551Z">
+<meta property="og:description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
+{
+    public void  draw()
+    {
+        //蓝天白云">
+<meta property="og:updated_time" content="2016-09-03T01:28:00.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android从入门到放弃-线程">
-<meta name="twitter:description" content="Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。
-Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。
-如">
+<meta name="twitter:title" content="Template模式">
+<meta name="twitter:description" content="其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。
+比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。
+public class E
+{
+    public void  draw()
+    {
+        //蓝天白云">
 
 
 
@@ -140,9 +152,9 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/06/android-Thread/"/>
+  <link rel="canonical" href="http://wuage.me/2016/08/25/oop-template/"/>
 
-  <title> Android从入门到放弃-线程 | 伍阿哥 </title>
+  <title> Template模式 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +307,7 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
             
             
               
-                Android从入门到放弃-线程
+                Template模式
               
             
           </h1>
@@ -307,8 +319,8 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T00:00:00+08:00" content="2016-08-06">
-              2016-08-06
+            <time itemprop="dateCreated" datetime="2016-08-25T00:00:00+08:00" content="2016-08-25">
+              2016-08-25
             </time>
           </span>
 
@@ -321,8 +333,8 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
+                  <a href="/categories/架构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">架构设计</span>
                   </a>
                 </span>
 
@@ -337,8 +349,8 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/android-Thread/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/android-Thread/" itemprop="commentsCount"></span>
+                <a href="/2016/08/25/oop-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/oop-template/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -366,24 +378,102 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
       
 
       
-        <p>Android更新UI元素的由主线程来处理，工作线程只能做逻辑运算处理，处理好之后通过Handler发Message给主线程。<br>主线程启动后会建立一个 loop 对象，一直在跑循环，定时检查 MessageQueue，取出Message 进行界面更新。</p>
-<p>Google这样设计的目的在于让主线程不需要处理线程安全问题，不需要加解锁，大大提高了APP的性能。 这和windows PC开发的机制是一样。</p>
-<p>如果UI线程执行某个逻辑运算时间过长的话，超过5秒，系统就会弹出警告，是否继续等待APP的响应还是关闭。这就是著名的 ANR。<br>因此，所有的耗时操作都应该放在 子线程中运行，比如：访问网络、数据库操作、JSON解析等。</p>
-<p>Android常用的线程实现方式有 Thread 和 AsyncTask。</p>
-<pre><code>private class MyAsyncTask extends AsyncTask&lt;String, Integer, String&gt; {
-    //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-    @Override
-    protected String doInBackground(String... params) {
-        return GetWebData(params[0]);
-    }
-    //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-    @Override
-    protected void onPostExecute(String result) {
-        mTvContent.setText(result);
+        <p>其实所有设计模式都是有EIT结构组成，EIT就好比原子，具体的模式好比分子，分子由原子组成。</p>
+<p>比如现在要画两幅画，这两幅画的背景都是蓝天白云，其中一幅画的前景是海鸥，<br>另外一幅画的前景是风筝。那么应该把不变的部分提取到父类，也就是把背景提取到父类，变化的部分放到子类。</p>
+<pre><code>public class E
+{
+    public void  draw()
+    {
+        //蓝天白云
     }
 }
-</code></pre><p>GitHub地址： <a href="https://github.com/wuzhuojun/firstcode/tree/master/fcode3" target="_blank" rel="external">https://github.com/wuzhuojun/firstcode/tree/master/fcode3</a></p>
 
+public class T extends E
+{
+    public void draw()
+    {
+        draw();
+        //海鸥
+    }
+}
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>当调用e.draw(); 时会首先调用父类的 draw 再调用子类的 draw。<br>这是一种实现方式，但这种方式有个缺点就是，子类与父类有较大的依赖，父类的 draw方法被调用后，后面改版，维护的成本就大了。我们可以使用另外一种方式来实现就是<br>Template Month模式。</p>
+<p>Template Method模式：</p>
+<pre><code>public class E
+{
+    public draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
+
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        E e = new T();
+        e.draw();
+    }
+}
+</code></pre><p>这种由客户端代码来调用E的实体函数，再通过接口控制反转来执行T的 onDraw()<br>这种模式叫 TM模式。其中E的draw() 方法是叫 template方法，onDraw()叫 hook方法</p>
+<p>TM设计模式虽然已经很优秀了，但仍然有个不好的地方，就是 Client 这里会用到 E 这个父类，那么当有很多Client （客户端用户不止一个厂商）使用了E，是的E变化的自由度就变低了，解决办法如下。</p>
+<p>Template Month模式：</p>
+<pre><code>interface I
+{
+    public void  draw();
+}
+
+
+public class E implements  I
+{
+    public void draw()   
+    {
+        //蓝天白云
+        onDraw();
+    }
+    public void abstract onDraw();
+}
+
+public class T extends E
+{
+    public void onDraw()
+    {
+        //海鸥
+    }   
+}    
+
+
+//客户端代码
+public class Client
+{
+    public void main()
+    {
+        I e = new T();
+        e.draw();
+    }
+}
+</code></pre>
       
     </div>
 
@@ -405,7 +495,7 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
       
         <div class="post-tags">
           
-            <a href="/tags/android/" rel="tag">#android</a>
+            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
           
         </div>
       
@@ -414,16 +504,16 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/06/android-Service/" rel="next" title="Android从入门到放弃-Service">
-                <i class="fa fa-chevron-left"></i> Android从入门到放弃-Service
+              <a href="/2016/08/25/oop-observer/" rel="next" title="《无间道》观察者模式">
+                <i class="fa fa-chevron-left"></i> 《无间道》观察者模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/06/android-directory/" rel="prev" title="Android从入门到放弃">
-                Android从入门到放弃 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/26/oop-visitor/" rel="prev" title="访问者模式">
+                访问者模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,8 +540,8 @@ Google这样设计的目的在于让主线程不需要处理线程安全问题�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/06/android-Thread/"
-           data-title="Android从入门到放弃-线程" data-url="http://wuage.me/2016/08/06/android-Thread/">
+      <div class="ds-thread" data-thread-key="2016/08/25/oop-template/"
+           data-title="Template模式" data-url="http://wuage.me/2016/08/25/oop-template/">
       </div>
     
   </div>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuage.me/2016/08/25/oop-template/</loc>
+    
+    <lastmod>2016-09-03T01:28:00.787Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuage.me/2016/08/31/hexo-blog/</loc>
     
     <lastmod>2016-08-31T13:49:03.199Z</lastmod>
