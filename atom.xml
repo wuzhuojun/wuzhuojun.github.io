@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuage.me/"/>
-  <updated>2016-09-07T06:05:05.255Z</updated>
+  <updated>2016-09-07T06:08:40.168Z</updated>
   <id>http://wuage.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wuage.me/2016/09/07/IT-think-cloud/"/>
     <id>http://wuage.me/2016/09/07/IT-think-cloud/</id>
     <published>2016-09-06T16:00:00.000Z</published>
-    <updated>2016-09-07T06:05:05.255Z</updated>
+    <updated>2016-09-07T06:08:40.168Z</updated>
     
     <content type="html"><![CDATA[<p>经常有朋友谈到，现在互联网做产品更多的不是自己搭建机房而是采用云服务，来加速产品的迭代开发。<br>但问题是，现在市面上那么多的云服务，我们该如何做出正确的选择，变得特别重要。</p>
 <p>那么我们就从价格、产品、技术支持的多个维度来分析国内外云服务的特点。<br>微软云，更适合国有企业、政府。价格高但提供的服务质量更好、24小时的技术支持。微软的基因决定了它的产品意识形态，更多的是为企业服务。<br>亚马逊，同时价格也贵，国内有部分互联网企业喜欢亚马逊是因为它能够提供更专业的多元化的云服务。</p>
@@ -40,10 +40,10 @@
     
     </summary>
     
-      <category term="创业公司做产品的感想" scheme="http://wuage.me/categories/%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%81%9A%E4%BA%A7%E5%93%81%E7%9A%84%E6%84%9F%E6%83%B3/"/>
+      <category term="创业" scheme="http://wuage.me/categories/%E5%88%9B%E4%B8%9A/"/>
     
     
-      <category term="创业公司做产品的感想" scheme="http://wuage.me/tags/%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%81%9A%E4%BA%A7%E5%93%81%E7%9A%84%E6%84%9F%E6%83%B3/"/>
+      <category term="创业" scheme="http://wuage.me/tags/%E5%88%9B%E4%B8%9A/"/>
     
   </entry>
   
@@ -1316,6 +1316,46 @@ public interface Observable
   </entry>
   
   <entry>
+    <title>面向对象--类模板的理解</title>
+    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
+    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
+    <published>2016-08-20T16:00:00.000Z</published>
+    <updated>2016-08-21T09:49:03.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
+{
+    private T age;
+}
+
+
+
+    
+    </summary>
+    
+      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    
+      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>以面向对象的角度理解android的架构设计</title>
     <link href="http://wuage.me/2016/08/21/oop-android-EIT/"/>
     <id>http://wuage.me/2016/08/21/oop-android-EIT/</id>
@@ -1388,46 +1428,6 @@ public class ChildFactory
     <summary type="html">
     
       &lt;p&gt;高焕堂老师的android面向对象视频，讲的非常好。 &lt;a href=&quot;http://www.maiziedu.com/u/2021/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.maiziedu.com/u/2021/&lt;/a&gt;&lt;b
-    
-    </summary>
-    
-      <category term="面向对象" scheme="http://wuage.me/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="面向对象" scheme="http://wuage.me/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象--类模板的理解</title>
-    <link href="http://wuage.me/2016/08/21/oop-class-template/"/>
-    <id>http://wuage.me/2016/08/21/oop-class-template/</id>
-    <published>2016-08-20T16:00:00.000Z</published>
-    <updated>2016-08-21T09:49:03.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;template是class的模板，用template可以生成类的形态。&lt;br&gt;class是object的模板，用class可以实例化出具体的对象。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Person&amp;lt;T&amp;gt;
-{
-    private T age;
-}
-
-
-
     
     </summary>
     

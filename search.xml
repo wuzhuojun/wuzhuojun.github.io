@@ -1096,6 +1096,23 @@ public class Client
     </entry>
     
     <entry>
+      <title><![CDATA[面向对象--类模板的理解]]></title>
+      <url>http://wuage.me/2016/08/21/oop-class-template/</url>
+      <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
+<pre><code>class Person&lt;T&gt;
+{
+    private T age;
+}
+
+
+Person&lt;int&gt; p = new Person&lt;int&gt;();
+</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
+<p>缸&lt;米&gt;<br>可以装米的缸</p>
+<p>缸&lt;水&gt;<br>可以装水的缸</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[以面向对象的角度理解android的架构设计]]></title>
       <url>http://wuage.me/2016/08/21/oop-android-EIT/</url>
       <content type="html"><![CDATA[<p>高焕堂老师的android面向对象视频，讲的非常好。 <a href="http://www.maiziedu.com/u/2021/" target="_blank" rel="external">http://www.maiziedu.com/u/2021/</a><br>其中他对 面向对象的理解，延伸出了EIT的概念。</p>
@@ -1159,23 +1176,6 @@ public class ChildFactory
 <p>在软件系统中也是一样道理。<br>EIT的设计使得系统变得分离，达到最终的目的是复用。E和I是复用的。</p>
 <p>从大的系统架构来分析。<br>框架就是 E和I<br>插件就是 T</p>
 <p>按照这样的架构模式，插件是可插拔的。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[面向对象--类模板的理解]]></title>
-      <url>http://wuage.me/2016/08/21/oop-class-template/</url>
-      <content type="html"><![CDATA[<p>template是class的模板，用template可以生成类的形态。<br>class是object的模板，用class可以实例化出具体的对象。</p>
-<pre><code>class Person&lt;T&gt;
-{
-    private T age;
-}
-
-
-Person&lt;int&gt; p = new Person&lt;int&gt;();
-</code></pre><p>编译的时候先用 Person<int> 替换成class，然后用这个 class 生成具体对象。</int></p>
-<p>缸&lt;米&gt;<br>可以装米的缸</p>
-<p>缸&lt;水&gt;<br>可以装水的缸</p>
 ]]></content>
     </entry>
     
