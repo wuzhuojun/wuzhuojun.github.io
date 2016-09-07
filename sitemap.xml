@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuage.me/2016/09/07/IT-think-cloud/</loc>
+    
+    <lastmod>2016-09-07T06:39:32.767Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuage.me/2016/08/22/linux-cron/</loc>
     
     <lastmod>2016-09-07T06:11:41.242Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://wuage.me/2016/09/03/oop-template/</loc>
     
     <lastmod>2016-09-07T06:11:00.269Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuage.me/2016/09/07/IT-think-cloud/</loc>
-    
-    <lastmod>2016-09-07T06:10:50.513Z</lastmod>
     
   </url>
   
