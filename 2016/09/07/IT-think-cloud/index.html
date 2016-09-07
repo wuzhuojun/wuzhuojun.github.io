@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面向对象，架构设计," />
+  <meta name="keywords" content="创业公司做产品的感想," />
 
 
 
@@ -104,21 +104,19 @@
 
 
 
-<meta name="description" content="我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。
-以电梯来举例：电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，">
+<meta name="description" content="经常有朋友谈到，现在互联网做产品更多的不是自己搭建机房而是采用云服务，来加速产品的迭代开发。但问题是，现在市面上那么多的云服务，我们该如何做出正确的选择，变得特别重要。
+那么我们就从价格、产品、技术支持的多个维度来分析国内外云服务的特点。微软云，更适合国有企业、政府。价格高但提供的服务质量更好、24小时的技术支持。微软的基因决定了它的产品意识形态，更多的是为企业服务。亚马逊，同时价格也贵，国内有部">
 <meta property="og:type" content="article">
-<meta property="og:title" content="状态模式">
-<meta property="og:url" content="http://wuage.me/2016/08/28/oop-state/index.html">
+<meta property="og:title" content="如何正确选择云服务？|创业公司做产品的感想">
+<meta property="og:url" content="http://wuage.me/2016/09/07/IT-think-cloud/index.html">
 <meta property="og:site_name" content="伍阿哥">
-<meta property="og:description" content="我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。
-以电梯来举例：电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，">
-<meta property="og:image" content="http://o94lqiatj.bkt.clouddn.com/5533156.png">
-<meta property="og:updated_time" content="2016-08-29T05:54:35.736Z">
+<meta property="og:description" content="经常有朋友谈到，现在互联网做产品更多的不是自己搭建机房而是采用云服务，来加速产品的迭代开发。但问题是，现在市面上那么多的云服务，我们该如何做出正确的选择，变得特别重要。
+那么我们就从价格、产品、技术支持的多个维度来分析国内外云服务的特点。微软云，更适合国有企业、政府。价格高但提供的服务质量更好、24小时的技术支持。微软的基因决定了它的产品意识形态，更多的是为企业服务。亚马逊，同时价格也贵，国内有部">
+<meta property="og:updated_time" content="2016-09-07T06:05:05.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="状态模式">
-<meta name="twitter:description" content="我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。
-以电梯来举例：电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，">
-<meta name="twitter:image" content="http://o94lqiatj.bkt.clouddn.com/5533156.png">
+<meta name="twitter:title" content="如何正确选择云服务？|创业公司做产品的感想">
+<meta name="twitter:description" content="经常有朋友谈到，现在互联网做产品更多的不是自己搭建机房而是采用云服务，来加速产品的迭代开发。但问题是，现在市面上那么多的云服务，我们该如何做出正确的选择，变得特别重要。
+那么我们就从价格、产品、技术支持的多个维度来分析国内外云服务的特点。微软云，更适合国有企业、政府。价格高但提供的服务质量更好、24小时的技术支持。微软的基因决定了它的产品意识形态，更多的是为企业服务。亚马逊，同时价格也贵，国内有部">
 
 
 
@@ -139,9 +137,9 @@
 
 
 
-  <link rel="canonical" href="http://wuage.me/2016/08/28/oop-state/"/>
+  <link rel="canonical" href="http://wuage.me/2016/09/07/IT-think-cloud/"/>
 
-  <title> 状态模式 | 伍阿哥 </title>
+  <title> 如何正确选择云服务？|创业公司做产品的感想 | 伍阿哥 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +292,7 @@
             
             
               
-                状态模式
+                如何正确选择云服务？|创业公司做产品的感想
               
             
           </h1>
@@ -306,8 +304,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-28T00:00:00+08:00" content="2016-08-28">
-              2016-08-28
+            <time itemprop="dateCreated" datetime="2016-09-07T00:00:00+08:00" content="2016-09-07">
+              2016-09-07
             </time>
           </span>
 
@@ -320,8 +318,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构设计/" itemprop="url" rel="index">
-                    <span itemprop="name">架构设计</span>
+                  <a href="/categories/创业公司做产品的感想/" itemprop="url" rel="index">
+                    <span itemprop="name">创业公司做产品的感想</span>
                   </a>
                 </span>
 
@@ -336,8 +334,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/28/oop-state/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/28/oop-state/" itemprop="commentsCount"></span>
+                <a href="/2016/09/07/IT-think-cloud/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/IT-think-cloud/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -365,159 +363,15 @@
       
 
       
-        <p>我们开发项目的过程中通常会碰到一种需求，某个对象包含多种状态变化的可能性，随着状态的变化行为也执行不同的动作。<br><img src="http://o94lqiatj.bkt.clouddn.com/5533156.png" alt=""></p>
-<p><strong>以电梯来举例：</strong><br>电梯最基本具备 开门、关门、上下走动、停止 这四种状态。状态与状态之间有约束的关系，比如只能在关门的情况下才能走动。<br>所以用传统面向过程的解决方案，就必须要用状态值来标记每一种状态，然后用多个if else语句来判断状态的执行顺序，每当增加一个新状态的时候就需要重新修改代码，这样就不符合开闭原则。</p>
-<p>我们来看下如何用状态模式来优雅的处理问题。</p>
-<pre><code>public abstract class LiftState
-{
-    protected Context context;
-    public void setContext(Context context)
-    {
-        this.context = context;
-    }
-    public abstract void open();  //电梯开门
-    public abstract void close(); //电梯关门
-    public abstract void stop();  //电梯停止
-    public abstract void run();   //电梯上下走动
-}
-//电梯处于开门状态
-public class OpenState extends LiftState
-{
-    @Override
-    public void open() {
-        //本身就处于开门状态
-        //do nothing
-    }
-    @Override
-    public void close() {
-        super.context.setLiftStatus(Context.closeState);  //切换至关门状态
-        super.context.getLiftStatus().close(); //委托关门状态类 来执行具体的关门动作
-    }
-    @Override
-    public void stop() {
-        //电梯开门状态时，本身就停止的
-        //do nothing
-    }
-    @Override
-    public void run() {
-        //电梯开门状态时，不能走动
-        //do nothing
-    }
-}
-//电梯走动状态
-public class RunState extends LiftState
-{
-    @Override
-    public void open() {
-        //走动状态不能开门
-        //do nothing
-    }
-    @Override
-    public void close() {
-        //走动状态本身就是处于关门状态
-        //do nothing
-    }
-    @Override
-    public void stop() {
-        super.context.setLiftStatus(Context.stopState);  //切换至停止状态
-        super.context.getLiftStatus().stop(); //委托停止状态类 来执行具体的停止动作
-    }
-    @Override
-    public void run() {
-        //本身就处于走动状态
-        //do nothing
-    }
-}
-//电梯关门状态类
-public class CloseState extends LiftState
-{
-    @Override
-    public void open() {
-        super.context.setLiftStatus(Context.openStatus);  //切换至开门状态
-        super.context.getLiftStatus().open(); //委托开门状态类 来执行具体的开门动作
-    }
-    @Override
-    public void close() {
-    }
-    @Override
-    public void stop() {
-    }
-    @Override
-    public void run() {
-        super.context.setLiftStatus(Context.runState);  //切换至走动状态
-        super.context.getLiftStatus().run(); //委托走动状态类 来执行具体的走动动作
-    }
-}
-//电梯停止状态类
-public class StopState extends LiftState
-{
-    @Override
-    public void open() {
-        super.context.setLiftStatus(Context.openStatus);  //切换至开门状态
-        super.context.getLiftStatus().open(); //委托开门状态类 来执行具体的走动动作
-    }
-    @Override
-    public void close() {
-    }
-    @Override
-    public void stop() {
-    }
-    @Override
-    public void run() {
-        super.context.setLiftStatus(Context.runState);  //切换至走动状态
-        super.context.getLiftStatus().run(); //委托走动状态类 来执行具体的走动动作
-    }
-}
-public class Context
-{
-    public final static OpenState openStatus = new OpenState();
-    public final static CloseState closeState = new CloseState();
-    public final static RunState runState = new RunState();
-    public final static StopState stopState = new StopState();
-    private LiftState curStatus; //当前电梯状态
-    //设置电梯状态，并且把当前上下文的引用传递给具体的状态类，具体的状态类通过上下文的引用切换不同的状态。
-    public void setLiftStatus(LiftState liftStatus)
-    {
-        curStatus = liftStatus;
-        liftStatus.setContext(this);
-    }
-    //获取当前的电梯状态
-    public LiftState getLiftStatus()
-    {
-        return curStatus;
-    }
-    public void open()
-    {
-        curStatus.open();
-    }
-    public void close()
-    {
-        curStatus.close();
-    }
-    public void stop()
-    {
-        curStatus.stop();
-    }
-    public void run()
-    {
-        curStatus.run();
-    }
-}
-//客户端类
-public class Client
-{
-    public static void main()
-    {
-        Context context = new Context();
-        context.setLiftStatus(new CloseState());  //电梯初始化为关门状态
-        context.open();
-        context.close();
-        context.run();
-        context.stop();
-    }
-}
-</code></pre><p><strong>需要说明的一点是：</strong><br>Context 是一个上下文角色，它的作用就是串联各个状态的过渡，在LifeState抽象类中我们定义了并把这个上下文组合进来，病传递到了子类。也就是四个具体状态类根据上下文的环境来决定如何进行状态的过渡。</p>
-<p><strong>状态模式的优点：</strong><br>首先，每个状态类都很简洁，同时也不需要用 if else 来判断状态的切换。<br>同时，如果我们要新增状态只需要创建新的状态类即可，是通过扩展而非修改的方式来实现功能，这是面向对象的一个重要原则，开闭原则。非常完美。</p>
+        <p>经常有朋友谈到，现在互联网做产品更多的不是自己搭建机房而是采用云服务，来加速产品的迭代开发。<br>但问题是，现在市面上那么多的云服务，我们该如何做出正确的选择，变得特别重要。</p>
+<p>那么我们就从价格、产品、技术支持的多个维度来分析国内外云服务的特点。<br>微软云，更适合国有企业、政府。价格高但提供的服务质量更好、24小时的技术支持。微软的基因决定了它的产品意识形态，更多的是为企业服务。<br>亚马逊，同时价格也贵，国内有部分互联网企业喜欢亚马逊是因为它能够提供更专业的多元化的云服务。</p>
+<p>有人担心说国内的计算机技术比不上国外，那么云计算是不是也跟国外有差距。首先，我认为国内的云已经做的相当好，技术成熟、产品全面，能够满足大部分企业的需求，各种云服务在国内大放异彩，竞相争夺市场份额。</p>
+<p>国内大部分互联网创业公司更喜欢阿里云，因为它的入门门槛低，价格优惠，云服务全面。并且阿里云的产品风格有点像是模仿亚马逊，相当于是把亚马逊的云做了本土化运营。<br>阿里云占据了国内云市场的半壁江山。剩余的口碑较好，占有一定市场份额的是腾讯云、UCloud、青云。</p>
+<p>像以上几个公司都能提供非常全面的云服务产品，从基础的设备服务如：主机的计算能力、网络带宽、文件存储、数据库，再到应用服务如：账号接入、搜索服务、大数据分析服务等等。都非常全面。<br>而且为什么国外云提供如此优质的云服务的情况下，阿里、腾讯能够在国内能占有那么大的市场份额的主要原因还是本土化运营。比如，最近视频直播火了，阿里和腾讯就会提供直播云。他们更了解国内市场，提供更接地气的云服务。</p>
+<p>腾讯云的特点是与腾讯自身产品的结合，提供社交入口。用户账号系统接入是它的一个卖点。同样它提供的云服务也是非常全面。<br>UCloud和青云的特点是产品线虽然没有阿里和腾讯的丰富，但我能提供更好的技术支持，像阿里云和腾讯的工单处理基本要等十多分钟才有回复，有时候会更久。<br>这对于产品快速迭代的互联网创业公司来说是一个痛点。而UCloud和青云正好是抓住了这个痛点，我提供不了更全面的云服务，那么我就用更好技术支持来弥补。<br>另外，百度云、京东云、新浪云、360云等大公司的云服务有点边缘化。<br>百度云曾经是提供了关于自身产品的一系列云服务，比如地图、搜索、大数据处理，但最近一两年也没有大力发展，貌似被阿里、腾讯甩在后面。<br>京东云更多也是提供自身产品相关的云服务，比如电商云、金融云。<br>360提供的安全云主机。</p>
+<p>华为最近半年大力发展云服务，在技术社区经常能看到他的宣传，它举办的云相关的技术竞赛。表明了它准备要抢占国内云市场的决心。<br>它的特点更多是针对企业提供云服务解决方案，跟其他云不一样，其他云更多是提供基础服务，客户自身来选择服务来搭建系统。<br>华为更多是B2B的模式，针对一个企业来制定整套的解决方案。因此华为云更适合有一定规模和经济基础的公司。</p>
+<p>还有其他的云服务商更多是提供细分市场的云服务，比如七牛、又拍云的云存储、CDN。<br>还有一些APP推送云、数据统计、APP测试云、后端云等。</p>
+<p>如何选择云这个跟你的项目背景有关，不同的企业，不同的产品，不同的发展阶段，都有不一样的决策。<br>在了解了各个云服务的优缺点之后，根据自身的需要去选择更适合自己的云服务。<br><strong>没有更好的云，只有更适合自己的云。</strong></p>
 
       
     </div>
@@ -540,7 +394,7 @@ public class Client
       
         <div class="post-tags">
           
-            <a href="/tags/面向对象，架构设计/" rel="tag">#面向对象，架构设计</a>
+            <a href="/tags/创业公司做产品的感想/" rel="tag">#创业公司做产品的感想</a>
           
         </div>
       
@@ -549,17 +403,13 @@ public class Client
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/27/oop-decorator/" rel="next" title="装饰模式">
-                <i class="fa fa-chevron-left"></i> 装饰模式
+              <a href="/2016/09/03/oop-template/" rel="next" title="Template模式">
+                <i class="fa fa-chevron-left"></i> Template模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/29/oop-command/" rel="prev" title="命令模式">
-                命令模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -585,8 +435,8 @@ public class Client
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/28/oop-state/"
-           data-title="状态模式" data-url="http://wuage.me/2016/08/28/oop-state/">
+      <div class="ds-thread" data-thread-key="2016/09/07/IT-think-cloud/"
+           data-title="如何正确选择云服务？|创业公司做产品的感想" data-url="http://wuage.me/2016/09/07/IT-think-cloud/">
       </div>
     
   </div>
